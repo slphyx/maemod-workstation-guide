@@ -190,12 +190,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./r-package-management.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">R Package Management</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./slurm.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Using Slurm</span></a>
   </div>
@@ -257,18 +251,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#main-idea" id="toc-main-idea" class="nav-link active" data-scroll-target="#main-idea"><span class="header-section-number">1</span> Main idea</a></li>
-  <li><a href="#check-conda" id="toc-check-conda" class="nav-link" data-scroll-target="#check-conda"><span class="header-section-number">2</span> Check conda</a></li>
-  <li><a href="#list-available-environments" id="toc-list-available-environments" class="nav-link" data-scroll-target="#list-available-environments"><span class="header-section-number">3</span> List available environments</a></li>
-  <li><a href="#activate-an-environment" id="toc-activate-an-environment" class="nav-link" data-scroll-target="#activate-an-environment"><span class="header-section-number">4</span> Activate an environment</a></li>
-  <li><a href="#deactivate-an-environment" id="toc-deactivate-an-environment" class="nav-link" data-scroll-target="#deactivate-an-environment"><span class="header-section-number">5</span> Deactivate an environment</a></li>
-  <li><a href="#r" id="toc-r" class="nav-link" data-scroll-target="#r"><span class="header-section-number">6</span> R</a></li>
-  <li><a href="#where-should-r-packages-be-installed" id="toc-where-should-r-packages-be-installed" class="nav-link" data-scroll-target="#where-should-r-packages-be-installed"><span class="header-section-number">7</span> Where should R packages be installed?</a></li>
-  <li><a href="#python" id="toc-python" class="nav-link" data-scroll-target="#python"><span class="header-section-number">8</span> Python</a></li>
-  <li><a href="#cmdstan" id="toc-cmdstan" class="nav-link" data-scroll-target="#cmdstan"><span class="header-section-number">9</span> CmdStan</a></li>
-  <li><a href="#recommended-workflow-for-r-cmdstanr-projects" id="toc-recommended-workflow-for-r-cmdstanr-projects" class="nav-link" data-scroll-target="#recommended-workflow-for-r-cmdstanr-projects"><span class="header-section-number">10</span> Recommended workflow for R + CmdStanR projects</a></li>
-  <li><a href="#recommended-workflow" id="toc-recommended-workflow" class="nav-link" data-scroll-target="#recommended-workflow"><span class="header-section-number">11</span> Recommended workflow</a></li>
-  <li><a href="#example-environment-note" id="toc-example-environment-note" class="nav-link" data-scroll-target="#example-environment-note"><span class="header-section-number">12</span> Example environment note</a></li>
+  <li><a href="#check-conda" id="toc-check-conda" class="nav-link active" data-scroll-target="#check-conda"><span class="header-section-number">1</span> Check conda</a></li>
+  <li><a href="#list-available-environments" id="toc-list-available-environments" class="nav-link" data-scroll-target="#list-available-environments"><span class="header-section-number">2</span> List available environments</a></li>
+  <li><a href="#activate-an-environment" id="toc-activate-an-environment" class="nav-link" data-scroll-target="#activate-an-environment"><span class="header-section-number">3</span> Activate an environment</a></li>
+  <li><a href="#deactivate-an-environment" id="toc-deactivate-an-environment" class="nav-link" data-scroll-target="#deactivate-an-environment"><span class="header-section-number">4</span> Deactivate an environment</a></li>
+  <li><a href="#r" id="toc-r" class="nav-link" data-scroll-target="#r"><span class="header-section-number">5</span> R</a></li>
+  <li><a href="#python" id="toc-python" class="nav-link" data-scroll-target="#python"><span class="header-section-number">6</span> Python</a></li>
+  <li><a href="#cmdstan" id="toc-cmdstan" class="nav-link" data-scroll-target="#cmdstan"><span class="header-section-number">7</span> CmdStan</a></li>
+  <li><a href="#recommended-workflow" id="toc-recommended-workflow" class="nav-link" data-scroll-target="#recommended-workflow"><span class="header-section-number">8</span> Recommended workflow</a></li>
+  <li><a href="#example-environment-note" id="toc-example-environment-note" class="nav-link" data-scroll-target="#example-environment-note"><span class="header-section-number">9</span> Example environment note</a></li>
   </ul>
 </nav>
     </div>
@@ -295,155 +286,78 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>This workstation supports scientific computing with R, Python, and CmdStan.</p>
-<p>Software is mainly managed using Miniforge, Conda, and Mamba.</p>
-<section id="main-idea" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="main-idea"><span class="header-section-number">1</span> Main idea</h2>
-<p>The workstation separates software into different levels:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Level</th>
-<th>Example</th>
-<th>Who manages it?</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>System software</td>
-<td>Slurm, Quarto, LaTeX, system libraries</td>
-<td>Administrator</td>
-</tr>
-<tr class="even">
-<td>Shared conda environments</td>
-<td><code>R-4.4</code>, <code>py311</code></td>
-<td>Administrator/RSE team</td>
-</tr>
-<tr class="odd">
-<td>Project R packages</td>
-<td><code>renv</code> project library</td>
-<td>Project users</td>
-</tr>
-<tr class="even">
-<td>Personal packages</td>
-<td>user home directory</td>
-<td>Individual user</td>
-</tr>
-</tbody>
-</table>
-<p>For R projects, the recommended approach is:</p>
-<pre class="text"><code>shared conda R version + project-specific renv library</code></pre>
-<p>This means everyone may use the same R version from conda, but each serious project can keep its own R package versions using <code>renv</code>.</p>
-</section>
-<section id="check-conda" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="check-conda"><span class="header-section-number">2</span> Check conda</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span> conda</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Software may be managed using Miniforge, Conda, and Mamba.</p>
+<section id="check-conda" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="check-conda"><span class="header-section-number">1</span> Check conda</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span> conda</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>If conda is available, this should show a path.</p>
 </section>
-<section id="list-available-environments" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="list-available-environments"><span class="header-section-number">3</span> List available environments</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env list</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="list-available-environments" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="list-available-environments"><span class="header-section-number">2</span> List available environments</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env list</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>or:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mamba</span> env list</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mamba</span> env list</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="activate-an-environment" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="activate-an-environment"><span class="header-section-number">4</span> Activate an environment</h2>
-<p>Example for R:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate R-4.4</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Example for Python:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate py311</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="activate-an-environment" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="activate-an-environment"><span class="header-section-number">3</span> Activate an environment</h2>
+<p>Example:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate R-4.4</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>or:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate py311</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The exact environment names depend on what has been installed.</p>
 </section>
-<section id="deactivate-an-environment" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="deactivate-an-environment"><span class="header-section-number">5</span> Deactivate an environment</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> deactivate</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="deactivate-an-environment" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="deactivate-an-environment"><span class="header-section-number">4</span> Deactivate an environment</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> deactivate</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="r" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="r"><span class="header-section-number">6</span> R</h2>
-<p>Activate the R environment:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate R-4.4</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="r" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="r"><span class="header-section-number">5</span> R</h2>
 <p>Start R:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">R</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">R</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Run an R script:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> analysis.R</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Check the R package library paths:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">.libPaths</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> analysis.R</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Install an R package:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>For shared environments, package installation permissions may depend on how the environment was created.</p>
 </section>
-<section id="where-should-r-packages-be-installed" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="where-should-r-packages-be-installed"><span class="header-section-number">7</span> Where should R packages be installed?</h2>
-<p>For most users:</p>
-<ul>
-<li>quick personal tests can use the personal R library</li>
-<li>reproducible project work should use <code>renv</code></li>
-<li>shared packages for all users should be installed by the administrator in the shared conda environment</li>
-</ul>
-<p>Do not assume that installing an R package in your own account makes it available to other users.</p>
-<p>See <a href="./r-package-management.html">R Package Management</a> for the full policy.</p>
-</section>
-<section id="python" class="level2" data-number="8">
-<h2 data-number="8" class="anchored" data-anchor-id="python"><span class="header-section-number">8</span> Python</h2>
-<p>Activate a Python environment:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate py311</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="python" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="python"><span class="header-section-number">6</span> Python</h2>
 <p>Start Python:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Run a Python script:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> analysis.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> analysis.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Install Python packages using conda or mamba when possible:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mamba</span> install numpy pandas scipy matplotlib</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>For project-specific work, consider creating a project-specific environment.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mamba</span> install numpy pandas scipy matplotlib</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>For project-specific packages, consider using a project-specific environment.</p>
 </section>
-<section id="cmdstan" class="level2" data-number="9">
-<h2 data-number="9" class="anchored" data-anchor-id="cmdstan"><span class="header-section-number">9</span> CmdStan</h2>
+<section id="cmdstan" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="cmdstan"><span class="header-section-number">7</span> CmdStan</h2>
 <p>CmdStan is useful for users who prefer CmdStan or CmdStanR rather than RStan.</p>
 <p>Check whether CmdStan is available:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> /data/software</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> /data/software</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>If using CmdStanR in R:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cmdstanr)</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>cmdstanr<span class="sc">::</span><span class="fu">cmdstan_path</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cmdstanr)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>cmdstanr<span class="sc">::</span><span class="fu">cmdstan_path</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Set CmdStan path if needed:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>cmdstanr<span class="sc">::</span><span class="fu">set_cmdstan_path</span>(<span class="st">"/data/software/cmdstan"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>cmdstanr<span class="sc">::</span><span class="fu">set_cmdstan_path</span>(<span class="st">"/data/software/cmdstan"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="recommended-workflow-for-r-cmdstanr-projects" class="level2" data-number="10">
-<h2 data-number="10" class="anchored" data-anchor-id="recommended-workflow-for-r-cmdstanr-projects"><span class="header-section-number">10</span> Recommended workflow for R + CmdStanR projects</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /data/projects/my-stan-project</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate R-4.4</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="ex">R</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Inside R:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"renv"</span>)</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">init</span>()</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"cmdstanr"</span>)</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>cmdstanr<span class="sc">::</span><span class="fu">set_cmdstan_path</span>(<span class="st">"/data/software/cmdstan"</span>)</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">snapshot</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>For future work in the same project:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /data/projects/my-stan-project</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate R-4.4</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="ex">R</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Then inside R:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">restore</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="recommended-workflow" class="level2" data-number="11">
-<h2 data-number="11" class="anchored" data-anchor-id="recommended-workflow"><span class="header-section-number">11</span> Recommended workflow</h2>
+<section id="recommended-workflow" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="recommended-workflow"><span class="header-section-number">8</span> Recommended workflow</h2>
 <p>For reproducible projects:</p>
 <ol type="1">
 <li>keep scripts in a project folder</li>
-<li>activate the correct conda environment</li>
-<li>use <code>renv</code> for R package versions</li>
+<li>record the environment used</li>
 <li>run long jobs through Slurm</li>
 <li>save outputs to <code>results/</code></li>
 <li>use Git when possible</li>
 </ol>
 </section>
-<section id="example-environment-note" class="level2" data-number="12">
-<h2 data-number="12" class="anchored" data-anchor-id="example-environment-note"><span class="header-section-number">12</span> Example environment note</h2>
+<section id="example-environment-note" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="example-environment-note"><span class="header-section-number">9</span> Example environment note</h2>
 <p>Create a file called <code>environment-notes.txt</code> in your project folder:</p>
 <pre class="text"><code>Date: 2026-06-18
 Workstation: mod-linux-ws01
 Environment: R-4.4
-R package management: renv
 Main packages: tidyverse, cmdstanr, posterior</code></pre>
 
 
