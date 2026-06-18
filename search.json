@@ -1,0 +1,1302 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "MAEMOD Research Workstation User Guide",
+    "section": "",
+    "text": "Welcome to the MAEMOD Research Workstation User Guide.\nThis guide explains how MAEMOD/MORU team members can connect to and use the shared Linux workstation for research computing tasks.\nThe workstation is intended for:",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#workstation-summary",
+    "href": "index.html#workstation-summary",
+    "title": "MAEMOD Research Workstation User Guide",
+    "section": "1 Workstation summary",
+    "text": "1 Workstation summary\n\n\n\nItem\nValue\n\n\n\n\nHostname\nmod-linux-ws01\n\n\nOperating system\nUbuntu Linux\n\n\nScheduler\nSlurm\n\n\nCPUs\n24\n\n\nShared software location\n/data/software\n\n\nShared conda environments\n/data/envs",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#how-to-use-this-guide",
+    "href": "index.html#how-to-use-this-guide",
+    "title": "MAEMOD Research Workstation User Guide",
+    "section": "2 How to use this guide",
+    "text": "2 How to use this guide\nNew users should start with:\n\nQuick Start\nConnecting to the Workstation\nBasic Linux Commands\nUsing Slurm\n\nUsers who already know Linux can go directly to the R, Python, CmdStan, and Slurm sections.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#important-rule",
+    "href": "index.html#important-rule",
+    "title": "MAEMOD Research Workstation User Guide",
+    "section": "3 Important rule",
+    "text": "3 Important rule\nFor long or computationally intensive work, please use Slurm instead of running jobs directly in the login terminal.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "user-accounts.html",
+    "href": "user-accounts.html",
+    "title": "User Accounts and Passwords",
+    "section": "",
+    "text": "Each user should use their own workstation account.",
+    "crumbs": [
+      "User Accounts and Passwords"
+    ]
+  },
+  {
+    "objectID": "user-accounts.html#check-your-username",
+    "href": "user-accounts.html#check-your-username",
+    "title": "User Accounts and Passwords",
+    "section": "1 Check your username",
+    "text": "1 Check your username\nwhoami",
+    "crumbs": [
+      "User Accounts and Passwords"
+    ]
+  },
+  {
+    "objectID": "user-accounts.html#check-your-groups",
+    "href": "user-accounts.html#check-your-groups",
+    "title": "User Accounts and Passwords",
+    "section": "2 Check your groups",
+    "text": "2 Check your groups\ngroups\nGroup membership controls access to shared folders and software.\nFor this workstation, users may need to be part of the research group to access shared research directories.",
+    "crumbs": [
+      "User Accounts and Passwords"
+    ]
+  },
+  {
+    "objectID": "user-accounts.html#change-your-password",
+    "href": "user-accounts.html#change-your-password",
+    "title": "User Accounts and Passwords",
+    "section": "3 Change your password",
+    "text": "3 Change your password\npasswd",
+    "crumbs": [
+      "User Accounts and Passwords"
+    ]
+  },
+  {
+    "objectID": "user-accounts.html#home-directory",
+    "href": "user-accounts.html#home-directory",
+    "title": "User Accounts and Passwords",
+    "section": "4 Home directory",
+    "text": "4 Home directory\nEach user has a home directory:\necho $HOME\nUsually this is:\n/home/username\nUse your home directory for personal scripts, configuration files, and small working files.",
+    "crumbs": [
+      "User Accounts and Passwords"
+    ]
+  },
+  {
+    "objectID": "user-accounts.html#do-not-share-passwords",
+    "href": "user-accounts.html#do-not-share-passwords",
+    "title": "User Accounts and Passwords",
+    "section": "5 Do not share passwords",
+    "text": "5 Do not share passwords\nDo not share your workstation password with other users.\nIf someone needs access, ask the administrator to create a separate account.",
+    "crumbs": [
+      "User Accounts and Passwords"
+    ]
+  },
+  {
+    "objectID": "ssh-access.html",
+    "href": "ssh-access.html",
+    "title": "Connecting to the Workstation",
+    "section": "",
+    "text": "The workstation is accessed using SSH.",
+    "crumbs": [
+      "Connecting to the Workstation"
+    ]
+  },
+  {
+    "objectID": "ssh-access.html#connection-details",
+    "href": "ssh-access.html#connection-details",
+    "title": "Connecting to the Workstation",
+    "section": "1 Connection details",
+    "text": "1 Connection details\n\n\n\nItem\nValue\n\n\n\n\nHostname\nmod-linux-ws01\n\n\nProtocol\nSSH\n\n\nPort\n22",
+    "crumbs": [
+      "Connecting to the Workstation"
+    ]
+  },
+  {
+    "objectID": "ssh-access.html#connect-from-linux-or-macos",
+    "href": "ssh-access.html#connect-from-linux-or-macos",
+    "title": "Connecting to the Workstation",
+    "section": "2 Connect from Linux or macOS",
+    "text": "2 Connect from Linux or macOS\nOpen a terminal and run:\nssh username@mod-linux-ws01\nReplace username with your own username.",
+    "crumbs": [
+      "Connecting to the Workstation"
+    ]
+  },
+  {
+    "objectID": "ssh-access.html#connect-from-windows-terminal-or-powershell",
+    "href": "ssh-access.html#connect-from-windows-terminal-or-powershell",
+    "title": "Connecting to the Workstation",
+    "section": "3 Connect from Windows Terminal or PowerShell",
+    "text": "3 Connect from Windows Terminal or PowerShell\nRecent versions of Windows include an SSH client.\nssh username@mod-linux-ws01",
+    "crumbs": [
+      "Connecting to the Workstation"
+    ]
+  },
+  {
+    "objectID": "ssh-access.html#connect-using-putty",
+    "href": "ssh-access.html#connect-using-putty",
+    "title": "Connecting to the Workstation",
+    "section": "4 Connect using PuTTY",
+    "text": "4 Connect using PuTTY\nOpen PuTTY and enter:\n\n\n\nField\nValue\n\n\n\n\nHost Name\nmod-linux-ws01\n\n\nPort\n22\n\n\nConnection type\nSSH\n\n\n\nClick Open and log in with your username and password.",
+    "crumbs": [
+      "Connecting to the Workstation"
+    ]
+  },
+  {
+    "objectID": "ssh-access.html#connect-using-mobaxterm",
+    "href": "ssh-access.html#connect-using-mobaxterm",
+    "title": "Connecting to the Workstation",
+    "section": "5 Connect using MobaXterm",
+    "text": "5 Connect using MobaXterm\nMobaXterm is useful because it provides SSH, file browsing, and terminal access in one program.\nCreate a new SSH session:\n\n\n\nField\nValue\n\n\n\n\nRemote host\nmod-linux-ws01\n\n\nUsername\nyour workstation username\n\n\nPort\n22",
+    "crumbs": [
+      "Connecting to the Workstation"
+    ]
+  },
+  {
+    "objectID": "ssh-access.html#connect-using-vs-code-remote-ssh",
+    "href": "ssh-access.html#connect-using-vs-code-remote-ssh",
+    "title": "Connecting to the Workstation",
+    "section": "6 Connect using VS Code Remote SSH",
+    "text": "6 Connect using VS Code Remote SSH\nVS Code Remote SSH is useful for editing scripts directly on the workstation.\nExample SSH config entry:\nHost maemod-workstation\n    HostName mod-linux-ws01\n    User username\nThen connect to maemod-workstation from VS Code.",
+    "crumbs": [
+      "Connecting to the Workstation"
+    ]
+  },
+  {
+    "objectID": "ssh-access.html#disconnect",
+    "href": "ssh-access.html#disconnect",
+    "title": "Connecting to the Workstation",
+    "section": "7 Disconnect",
+    "text": "7 Disconnect\nTo log out:\nexit",
+    "crumbs": [
+      "Connecting to the Workstation"
+    ]
+  },
+  {
+    "objectID": "r-python-cmdstan.html",
+    "href": "r-python-cmdstan.html",
+    "title": "Using R, Python, and CmdStan",
+    "section": "",
+    "text": "This workstation supports scientific computing with R, Python, and CmdStan.\nSoftware may be managed using Miniforge, Conda, and Mamba.",
+    "crumbs": [
+      "Using R, Python, and CmdStan"
+    ]
+  },
+  {
+    "objectID": "r-python-cmdstan.html#check-conda",
+    "href": "r-python-cmdstan.html#check-conda",
+    "title": "Using R, Python, and CmdStan",
+    "section": "1 Check conda",
+    "text": "1 Check conda\nwhich conda\nIf conda is available, this should show a path.",
+    "crumbs": [
+      "Using R, Python, and CmdStan"
+    ]
+  },
+  {
+    "objectID": "r-python-cmdstan.html#list-available-environments",
+    "href": "r-python-cmdstan.html#list-available-environments",
+    "title": "Using R, Python, and CmdStan",
+    "section": "2 List available environments",
+    "text": "2 List available environments\nconda env list\nor:\nmamba env list",
+    "crumbs": [
+      "Using R, Python, and CmdStan"
+    ]
+  },
+  {
+    "objectID": "r-python-cmdstan.html#activate-an-environment",
+    "href": "r-python-cmdstan.html#activate-an-environment",
+    "title": "Using R, Python, and CmdStan",
+    "section": "3 Activate an environment",
+    "text": "3 Activate an environment\nExample:\nconda activate R-4.4\nor:\nconda activate py311\nThe exact environment names depend on what has been installed.",
+    "crumbs": [
+      "Using R, Python, and CmdStan"
+    ]
+  },
+  {
+    "objectID": "r-python-cmdstan.html#deactivate-an-environment",
+    "href": "r-python-cmdstan.html#deactivate-an-environment",
+    "title": "Using R, Python, and CmdStan",
+    "section": "4 Deactivate an environment",
+    "text": "4 Deactivate an environment\nconda deactivate",
+    "crumbs": [
+      "Using R, Python, and CmdStan"
+    ]
+  },
+  {
+    "objectID": "r-python-cmdstan.html#r",
+    "href": "r-python-cmdstan.html#r",
+    "title": "Using R, Python, and CmdStan",
+    "section": "5 R",
+    "text": "5 R\nStart R:\nR\nRun an R script:\nRscript analysis.R\nInstall an R package:\ninstall.packages(\"tidyverse\")\nFor shared environments, package installation permissions may depend on how the environment was created.",
+    "crumbs": [
+      "Using R, Python, and CmdStan"
+    ]
+  },
+  {
+    "objectID": "r-python-cmdstan.html#python",
+    "href": "r-python-cmdstan.html#python",
+    "title": "Using R, Python, and CmdStan",
+    "section": "6 Python",
+    "text": "6 Python\nStart Python:\npython\nRun a Python script:\npython analysis.py\nInstall Python packages using conda or mamba when possible:\nmamba install numpy pandas scipy matplotlib\nFor project-specific packages, consider using a project-specific environment.",
+    "crumbs": [
+      "Using R, Python, and CmdStan"
+    ]
+  },
+  {
+    "objectID": "r-python-cmdstan.html#cmdstan",
+    "href": "r-python-cmdstan.html#cmdstan",
+    "title": "Using R, Python, and CmdStan",
+    "section": "7 CmdStan",
+    "text": "7 CmdStan\nCmdStan is useful for users who prefer CmdStan or CmdStanR rather than RStan.\nCheck whether CmdStan is available:\nls /data/software\nIf using CmdStanR in R:\nlibrary(cmdstanr)\ncmdstanr::cmdstan_path()\nSet CmdStan path if needed:\ncmdstanr::set_cmdstan_path(\"/data/software/cmdstan\")",
+    "crumbs": [
+      "Using R, Python, and CmdStan"
+    ]
+  },
+  {
+    "objectID": "r-python-cmdstan.html#recommended-workflow",
+    "href": "r-python-cmdstan.html#recommended-workflow",
+    "title": "Using R, Python, and CmdStan",
+    "section": "8 Recommended workflow",
+    "text": "8 Recommended workflow\nFor reproducible projects:\n\nkeep scripts in a project folder\nrecord the environment used\nrun long jobs through Slurm\nsave outputs to results/\nuse Git when possible",
+    "crumbs": [
+      "Using R, Python, and CmdStan"
+    ]
+  },
+  {
+    "objectID": "r-python-cmdstan.html#example-environment-note",
+    "href": "r-python-cmdstan.html#example-environment-note",
+    "title": "Using R, Python, and CmdStan",
+    "section": "9 Example environment note",
+    "text": "9 Example environment note\nCreate a file called environment-notes.txt in your project folder:\nDate: 2026-06-18\nWorkstation: mod-linux-ws01\nEnvironment: R-4.4\nMain packages: tidyverse, cmdstanr, posterior",
+    "crumbs": [
+      "Using R, Python, and CmdStan"
+    ]
+  },
+  {
+    "objectID": "good-practice.html",
+    "href": "good-practice.html",
+    "title": "Good Practice",
+    "section": "",
+    "text": "This page gives recommended practices for using the shared workstation.",
+    "crumbs": [
+      "Good Practice"
+    ]
+  },
+  {
+    "objectID": "good-practice.html#use-slurm-for-long-jobs",
+    "href": "good-practice.html#use-slurm-for-long-jobs",
+    "title": "Good Practice",
+    "section": "1 Use Slurm for long jobs",
+    "text": "1 Use Slurm for long jobs\nDo not run long or intensive jobs directly in the login terminal.\nUse Slurm:\nsbatch job.sh",
+    "crumbs": [
+      "Good Practice"
+    ]
+  },
+  {
+    "objectID": "good-practice.html#organise-project-folders",
+    "href": "good-practice.html#organise-project-folders",
+    "title": "Good Practice",
+    "section": "2 Organise project folders",
+    "text": "2 Organise project folders\nRecommended structure:\nproject-name/\n├── data/\n├── scripts/\n├── results/\n├── figures/\n├── reports/\n└── README.md",
+    "crumbs": [
+      "Good Practice"
+    ]
+  },
+  {
+    "objectID": "good-practice.html#keep-raw-data-unchanged",
+    "href": "good-practice.html#keep-raw-data-unchanged",
+    "title": "Good Practice",
+    "section": "3 Keep raw data unchanged",
+    "text": "3 Keep raw data unchanged\nDo not edit raw data directly.\nSave cleaned or transformed data in a separate folder.",
+    "crumbs": [
+      "Good Practice"
+    ]
+  },
+  {
+    "objectID": "good-practice.html#use-clear-filenames",
+    "href": "good-practice.html#use-clear-filenames",
+    "title": "Good Practice",
+    "section": "4 Use clear filenames",
+    "text": "4 Use clear filenames\nGood examples:\nanalysis-model-v1.R\nresults-2026-06-18.csv\nfigure-transmission-map.png\nAvoid:\nnew.R\ntest2.csv\nfinal_final_v3.csv",
+    "crumbs": [
+      "Good Practice"
+    ]
+  },
+  {
+    "objectID": "good-practice.html#record-software-versions",
+    "href": "good-practice.html#record-software-versions",
+    "title": "Good Practice",
+    "section": "5 Record software versions",
+    "text": "5 Record software versions\nUseful commands:\nR --version\npython --version\nquarto --version\nFor R:\nsessionInfo()\nFor Python:\npip freeze\nor:\nconda list",
+    "crumbs": [
+      "Good Practice"
+    ]
+  },
+  {
+    "objectID": "good-practice.html#use-git-for-code",
+    "href": "good-practice.html#use-git-for-code",
+    "title": "Good Practice",
+    "section": "6 Use Git for code",
+    "text": "6 Use Git for code\nUse Git for scripts, reports, and documentation.\nDo not put very large data files into Git unless there is a clear reason.",
+    "crumbs": [
+      "Good Practice"
+    ]
+  },
+  {
+    "objectID": "good-practice.html#clean-up-old-files",
+    "href": "good-practice.html#clean-up-old-files",
+    "title": "Good Practice",
+    "section": "7 Clean up old files",
+    "text": "7 Clean up old files\nCheck folder size:\ndu -sh .\nRemove temporary files that are no longer needed.",
+    "crumbs": [
+      "Good Practice"
+    ]
+  },
+  {
+    "objectID": "good-practice.html#be-considerate",
+    "href": "good-practice.html#be-considerate",
+    "title": "Good Practice",
+    "section": "8 Be considerate",
+    "text": "8 Be considerate\nThis is a shared workstation.\nPlease avoid using all CPUs or memory unless necessary.",
+    "crumbs": [
+      "Good Practice"
+    ]
+  },
+  {
+    "objectID": "file-storage.html",
+    "href": "file-storage.html",
+    "title": "File Storage and Project Folders",
+    "section": "",
+    "text": "This page explains where files should be stored.",
+    "crumbs": [
+      "File Storage and Project Folders"
+    ]
+  },
+  {
+    "objectID": "file-storage.html#home-directory",
+    "href": "file-storage.html#home-directory",
+    "title": "File Storage and Project Folders",
+    "section": "1 Home directory",
+    "text": "1 Home directory\nYour home directory is:\n/home/username\nUse this for:\n\npersonal scripts\nsmall analyses\nconfiguration files\nnotes\n\nAvoid storing very large datasets in your home directory.",
+    "crumbs": [
+      "File Storage and Project Folders"
+    ]
+  },
+  {
+    "objectID": "file-storage.html#shared-software",
+    "href": "file-storage.html#shared-software",
+    "title": "File Storage and Project Folders",
+    "section": "2 Shared software",
+    "text": "2 Shared software\nShared software is installed in:\n/data/software\nThis directory is managed by the workstation administrator.\nUsers should not normally install project data here.",
+    "crumbs": [
+      "File Storage and Project Folders"
+    ]
+  },
+  {
+    "objectID": "file-storage.html#shared-conda-environments",
+    "href": "file-storage.html#shared-conda-environments",
+    "title": "File Storage and Project Folders",
+    "section": "3 Shared conda environments",
+    "text": "3 Shared conda environments\nShared conda environments are stored in:\n/data/envs\nThese environments can be used by multiple users.\nExample:\nconda activate /data/envs/R-4.4\nor, if the environment name is configured:\nconda activate R-4.4",
+    "crumbs": [
+      "File Storage and Project Folders"
+    ]
+  },
+  {
+    "objectID": "file-storage.html#project-folders",
+    "href": "file-storage.html#project-folders",
+    "title": "File Storage and Project Folders",
+    "section": "4 Project folders",
+    "text": "4 Project folders\nProject data should be stored in a shared project location, for example:\n/data/projects\nA suggested project structure is:\nproject-name/\n├── data/\n│   ├── raw/\n│   └── processed/\n├── scripts/\n├── results/\n├── figures/\n├── reports/\n└── README.md",
+    "crumbs": [
+      "File Storage and Project Folders"
+    ]
+  },
+  {
+    "objectID": "file-storage.html#recommended-practice",
+    "href": "file-storage.html#recommended-practice",
+    "title": "File Storage and Project Folders",
+    "section": "5 Recommended practice",
+    "text": "5 Recommended practice\nKeep raw data separate from processed data.\nDo not overwrite raw data.\nUse clear filenames and include dates or version numbers where useful.\nExample:\nresults/model-fit-2026-06-18.csv",
+    "crumbs": [
+      "File Storage and Project Folders"
+    ]
+  },
+  {
+    "objectID": "file-storage.html#check-disk-usage",
+    "href": "file-storage.html#check-disk-usage",
+    "title": "File Storage and Project Folders",
+    "section": "6 Check disk usage",
+    "text": "6 Check disk usage\nCheck available disk space:\ndf -h\nCheck the size of your folder:\ndu -sh .",
+    "crumbs": [
+      "File Storage and Project Folders"
+    ]
+  },
+  {
+    "objectID": "examples/submit-python-job.html",
+    "href": "examples/submit-python-job.html",
+    "title": "Submit a Python Job",
+    "section": "",
+    "text": "This example shows how to submit a Python script using Slurm.",
+    "crumbs": [
+      "Examples",
+      "Submit a Python Job"
+    ]
+  },
+  {
+    "objectID": "examples/submit-python-job.html#example-python-script",
+    "href": "examples/submit-python-job.html#example-python-script",
+    "title": "Submit a Python Job",
+    "section": "1 Example Python script",
+    "text": "1 Example Python script\nCreate analysis.py:\nimport platform\nfrom datetime import datetime\n\nprint(\"Running Python analysis\")\nprint(platform.node())\nprint(datetime.now())",
+    "crumbs": [
+      "Examples",
+      "Submit a Python Job"
+    ]
+  },
+  {
+    "objectID": "examples/submit-python-job.html#example-slurm-script",
+    "href": "examples/submit-python-job.html#example-slurm-script",
+    "title": "Submit a Python Job",
+    "section": "2 Example Slurm script",
+    "text": "2 Example Slurm script\nCreate run-python.sh:\n#!/bin/bash\n#SBATCH --job-name=python-test\n#SBATCH --cpus-per-task=1\n#SBATCH --mem=2G\n#SBATCH --output=python-test.out\n#SBATCH --error=python-test.err\n\nconda activate py311\n\npython analysis.py",
+    "crumbs": [
+      "Examples",
+      "Submit a Python Job"
+    ]
+  },
+  {
+    "objectID": "examples/submit-python-job.html#submit-the-job",
+    "href": "examples/submit-python-job.html#submit-the-job",
+    "title": "Submit a Python Job",
+    "section": "3 Submit the job",
+    "text": "3 Submit the job\nsbatch run-python.sh",
+    "crumbs": [
+      "Examples",
+      "Submit a Python Job"
+    ]
+  },
+  {
+    "objectID": "examples/submit-python-job.html#check-output",
+    "href": "examples/submit-python-job.html#check-output",
+    "title": "Submit a Python Job",
+    "section": "4 Check output",
+    "text": "4 Check output\ncat python-test.out",
+    "crumbs": [
+      "Examples",
+      "Submit a Python Job"
+    ]
+  },
+  {
+    "objectID": "examples/submit-python-job.html#notes",
+    "href": "examples/submit-python-job.html#notes",
+    "title": "Submit a Python Job",
+    "section": "5 Notes",
+    "text": "5 Notes\nFor larger analyses, request more memory or CPUs only when needed.\nExample:\n#SBATCH --cpus-per-task=4\n#SBATCH --mem=8G",
+    "crumbs": [
+      "Examples",
+      "Submit a Python Job"
+    ]
+  },
+  {
+    "objectID": "basic-linux-commands.html",
+    "href": "basic-linux-commands.html",
+    "title": "Basic Linux Commands",
+    "section": "",
+    "text": "This page lists basic Linux commands that are useful for new users.",
+    "crumbs": [
+      "Basic Linux Commands"
+    ]
+  },
+  {
+    "objectID": "basic-linux-commands.html#where-am-i",
+    "href": "basic-linux-commands.html#where-am-i",
+    "title": "Basic Linux Commands",
+    "section": "1 Where am I?",
+    "text": "1 Where am I?\nShow the current directory:\npwd",
+    "crumbs": [
+      "Basic Linux Commands"
+    ]
+  },
+  {
+    "objectID": "basic-linux-commands.html#list-files",
+    "href": "basic-linux-commands.html#list-files",
+    "title": "Basic Linux Commands",
+    "section": "2 List files",
+    "text": "2 List files\nls\nShow details:\nls -lh\nShow hidden files:\nls -la",
+    "crumbs": [
+      "Basic Linux Commands"
+    ]
+  },
+  {
+    "objectID": "basic-linux-commands.html#change-directory",
+    "href": "basic-linux-commands.html#change-directory",
+    "title": "Basic Linux Commands",
+    "section": "3 Change directory",
+    "text": "3 Change directory\nGo to a folder:\ncd folder_name\nGo back to your home directory:\ncd\nGo up one level:\ncd ..",
+    "crumbs": [
+      "Basic Linux Commands"
+    ]
+  },
+  {
+    "objectID": "basic-linux-commands.html#create-folders",
+    "href": "basic-linux-commands.html#create-folders",
+    "title": "Basic Linux Commands",
+    "section": "4 Create folders",
+    "text": "4 Create folders\nmkdir project\nCreate nested folders:\nmkdir -p project/data/raw",
+    "crumbs": [
+      "Basic Linux Commands"
+    ]
+  },
+  {
+    "objectID": "basic-linux-commands.html#copy-files",
+    "href": "basic-linux-commands.html#copy-files",
+    "title": "Basic Linux Commands",
+    "section": "5 Copy files",
+    "text": "5 Copy files\nCopy one file:\ncp file.txt backup.txt\nCopy a folder:\ncp -r project project_backup",
+    "crumbs": [
+      "Basic Linux Commands"
+    ]
+  },
+  {
+    "objectID": "basic-linux-commands.html#move-or-rename-files",
+    "href": "basic-linux-commands.html#move-or-rename-files",
+    "title": "Basic Linux Commands",
+    "section": "6 Move or rename files",
+    "text": "6 Move or rename files\nRename a file:\nmv old_name.txt new_name.txt\nMove a file into a folder:\nmv file.txt project/",
+    "crumbs": [
+      "Basic Linux Commands"
+    ]
+  },
+  {
+    "objectID": "basic-linux-commands.html#delete-files",
+    "href": "basic-linux-commands.html#delete-files",
+    "title": "Basic Linux Commands",
+    "section": "7 Delete files",
+    "text": "7 Delete files\nDelete a file:\nrm file.txt\nDelete a folder and everything inside it:\nrm -r folder_name\n\n\n\n\n\n\nWarning\n\n\n\nBe careful with rm. Files deleted from the command line may not be recoverable.",
+    "crumbs": [
+      "Basic Linux Commands"
+    ]
+  },
+  {
+    "objectID": "basic-linux-commands.html#view-text-files",
+    "href": "basic-linux-commands.html#view-text-files",
+    "title": "Basic Linux Commands",
+    "section": "8 View text files",
+    "text": "8 View text files\nShow a whole file:\ncat file.txt\nView a long file page by page:\nless file.txt\nShow the first lines:\nhead file.txt\nShow the last lines:\ntail file.txt\nWatch a file as it updates:\ntail -f output.log",
+    "crumbs": [
+      "Basic Linux Commands"
+    ]
+  },
+  {
+    "objectID": "basic-linux-commands.html#edit-text-files",
+    "href": "basic-linux-commands.html#edit-text-files",
+    "title": "Basic Linux Commands",
+    "section": "9 Edit text files",
+    "text": "9 Edit text files\nUse nano for simple editing:\nnano script.R\nSave with Ctrl + O, then press Enter. Exit with Ctrl + X.",
+    "crumbs": [
+      "Basic Linux Commands"
+    ]
+  },
+  {
+    "objectID": "basic-linux-commands.html#search-inside-files",
+    "href": "basic-linux-commands.html#search-inside-files",
+    "title": "Basic Linux Commands",
+    "section": "10 Search inside files",
+    "text": "10 Search inside files\nSearch for text in a file:\ngrep \"error\" output.log\nSearch recursively in a folder:\ngrep -r \"parameter\" .",
+    "crumbs": [
+      "Basic Linux Commands"
+    ]
+  },
+  {
+    "objectID": "basic-linux-commands.html#find-files",
+    "href": "basic-linux-commands.html#find-files",
+    "title": "Basic Linux Commands",
+    "section": "11 Find files",
+    "text": "11 Find files\nFind files by name:\nfind . -name \"*.R\"\nFind large files:\nfind . -type f -size +1G",
+    "crumbs": [
+      "Basic Linux Commands"
+    ]
+  },
+  {
+    "objectID": "basic-linux-commands.html#check-disk-space",
+    "href": "basic-linux-commands.html#check-disk-space",
+    "title": "Basic Linux Commands",
+    "section": "12 Check disk space",
+    "text": "12 Check disk space\ndf -h\nCheck the size of a folder:\ndu -sh folder_name",
+    "crumbs": [
+      "Basic Linux Commands"
+    ]
+  },
+  {
+    "objectID": "basic-linux-commands.html#check-memory",
+    "href": "basic-linux-commands.html#check-memory",
+    "title": "Basic Linux Commands",
+    "section": "13 Check memory",
+    "text": "13 Check memory\nfree -h",
+    "crumbs": [
+      "Basic Linux Commands"
+    ]
+  },
+  {
+    "objectID": "basic-linux-commands.html#check-running-processes",
+    "href": "basic-linux-commands.html#check-running-processes",
+    "title": "Basic Linux Commands",
+    "section": "14 Check running processes",
+    "text": "14 Check running processes\ntop\nor, if installed:\nhtop",
+    "crumbs": [
+      "Basic Linux Commands"
+    ]
+  },
+  {
+    "objectID": "basic-linux-commands.html#stop-a-running-command",
+    "href": "basic-linux-commands.html#stop-a-running-command",
+    "title": "Basic Linux Commands",
+    "section": "15 Stop a running command",
+    "text": "15 Stop a running command\nPress:\nCtrl + C",
+    "crumbs": [
+      "Basic Linux Commands"
+    ]
+  },
+  {
+    "objectID": "basic-linux-commands.html#command-history",
+    "href": "basic-linux-commands.html#command-history",
+    "title": "Basic Linux Commands",
+    "section": "16 Command history",
+    "text": "16 Command history\nShow previous commands:\nhistory\nSearch command history:\nCtrl + R",
+    "crumbs": [
+      "Basic Linux Commands"
+    ]
+  },
+  {
+    "objectID": "basic-linux-commands.html#useful-shortcuts",
+    "href": "basic-linux-commands.html#useful-shortcuts",
+    "title": "Basic Linux Commands",
+    "section": "17 Useful shortcuts",
+    "text": "17 Useful shortcuts\n\n\n\nShortcut\nMeaning\n\n\n\n\nTab\nautocomplete file or command name\n\n\nCtrl + C\nstop current command\n\n\nCtrl + L\nclear screen\n\n\nCtrl + A\nmove to start of line\n\n\nCtrl + E\nmove to end of line",
+    "crumbs": [
+      "Basic Linux Commands"
+    ]
+  },
+  {
+    "objectID": "admin-notes.html",
+    "href": "admin-notes.html",
+    "title": "Admin Notes",
+    "section": "",
+    "text": "This section is intended for workstation administrators.",
+    "crumbs": [
+      "Admin Notes"
+    ]
+  },
+  {
+    "objectID": "admin-notes.html#user-management",
+    "href": "admin-notes.html#user-management",
+    "title": "Admin Notes",
+    "section": "1 User management",
+    "text": "1 User management\nCreate a new user:\nsudo adduser username\nAdd user to a group:\nsudo usermod -aG research username\nCheck user groups:\ngroups username",
+    "crumbs": [
+      "Admin Notes"
+    ]
+  },
+  {
+    "objectID": "admin-notes.html#shared-directories",
+    "href": "admin-notes.html#shared-directories",
+    "title": "Admin Notes",
+    "section": "2 Shared directories",
+    "text": "2 Shared directories\nShared software:\n/data/software\nShared conda environments:\n/data/envs\nCheck permissions:\nls -ld /data/software\nls -ld /data/envs",
+    "crumbs": [
+      "Admin Notes"
+    ]
+  },
+  {
+    "objectID": "admin-notes.html#slurm-checks",
+    "href": "admin-notes.html#slurm-checks",
+    "title": "Admin Notes",
+    "section": "3 Slurm checks",
+    "text": "3 Slurm checks\nCheck node status:\nsinfo\nShow node details:\nscontrol show node mod-linux-ws01\nRestart Slurm services if needed:\nsudo systemctl restart slurmctld\nsudo systemctl restart slurmd\nCheck service status:\nsystemctl status slurmctld\nsystemctl status slurmd",
+    "crumbs": [
+      "Admin Notes"
+    ]
+  },
+  {
+    "objectID": "admin-notes.html#quarto",
+    "href": "admin-notes.html#quarto",
+    "title": "Admin Notes",
+    "section": "4 Quarto",
+    "text": "4 Quarto\nCheck Quarto:\nquarto --version\nquarto check",
+    "crumbs": [
+      "Admin Notes"
+    ]
+  },
+  {
+    "objectID": "admin-notes.html#conda-and-mamba",
+    "href": "admin-notes.html#conda-and-mamba",
+    "title": "Admin Notes",
+    "section": "5 Conda and Mamba",
+    "text": "5 Conda and Mamba\nCheck installation:\nwhich conda\nwhich mamba\nList environments:\nconda env list",
+    "crumbs": [
+      "Admin Notes"
+    ]
+  },
+  {
+    "objectID": "admin-notes.html#documentation-website",
+    "href": "admin-notes.html#documentation-website",
+    "title": "Admin Notes",
+    "section": "6 Documentation website",
+    "text": "6 Documentation website\nRender the guide:\nquarto render\nPreview locally:\nquarto preview\nThe rendered website is written to:\n_site/",
+    "crumbs": [
+      "Admin Notes"
+    ]
+  },
+  {
+    "objectID": "admin-notes.html#notes-for-future-administrators",
+    "href": "admin-notes.html#notes-for-future-administrators",
+    "title": "Admin Notes",
+    "section": "7 Notes for future administrators",
+    "text": "7 Notes for future administrators\nKeep this section updated when the workstation configuration changes.",
+    "crumbs": [
+      "Admin Notes"
+    ]
+  },
+  {
+    "objectID": "examples/submit-cmdstan-job.html",
+    "href": "examples/submit-cmdstan-job.html",
+    "title": "Submit a CmdStan Job",
+    "section": "",
+    "text": "This example shows how to run a CmdStan model using Slurm.",
+    "crumbs": [
+      "Examples",
+      "Submit a CmdStan Job"
+    ]
+  },
+  {
+    "objectID": "examples/submit-cmdstan-job.html#example-stan-model",
+    "href": "examples/submit-cmdstan-job.html#example-stan-model",
+    "title": "Submit a CmdStan Job",
+    "section": "1 Example Stan model",
+    "text": "1 Example Stan model\nCreate normal.stan:\ndata {\n  int&lt;lower=0&gt; N;\n  array[N] real y;\n}\nparameters {\n  real mu;\n  real&lt;lower=0&gt; sigma;\n}\nmodel {\n  y ~ normal(mu, sigma);\n}",
+    "crumbs": [
+      "Examples",
+      "Submit a CmdStan Job"
+    ]
+  },
+  {
+    "objectID": "examples/submit-cmdstan-job.html#compile-the-model",
+    "href": "examples/submit-cmdstan-job.html#compile-the-model",
+    "title": "Submit a CmdStan Job",
+    "section": "2 Compile the model",
+    "text": "2 Compile the model\nIf CmdStan is available in your environment:\nmake normal\nor use CmdStanR from R.",
+    "crumbs": [
+      "Examples",
+      "Submit a CmdStan Job"
+    ]
+  },
+  {
+    "objectID": "examples/submit-cmdstan-job.html#example-slurm-script-for-cmdstan",
+    "href": "examples/submit-cmdstan-job.html#example-slurm-script-for-cmdstan",
+    "title": "Submit a CmdStan Job",
+    "section": "3 Example Slurm script for CmdStan",
+    "text": "3 Example Slurm script for CmdStan\nCreate run-cmdstan.sh:\n#!/bin/bash\n#SBATCH --job-name=cmdstan-test\n#SBATCH --cpus-per-task=4\n#SBATCH --mem=8G\n#SBATCH --output=cmdstan-test.out\n#SBATCH --error=cmdstan-test.err\n\nexport STAN_NUM_THREADS=$SLURM_CPUS_PER_TASK\n\n./normal sample data file=data.json output file=output.csv",
+    "crumbs": [
+      "Examples",
+      "Submit a CmdStan Job"
+    ]
+  },
+  {
+    "objectID": "examples/submit-cmdstan-job.html#submit-the-job",
+    "href": "examples/submit-cmdstan-job.html#submit-the-job",
+    "title": "Submit a CmdStan Job",
+    "section": "4 Submit the job",
+    "text": "4 Submit the job\nsbatch run-cmdstan.sh",
+    "crumbs": [
+      "Examples",
+      "Submit a CmdStan Job"
+    ]
+  },
+  {
+    "objectID": "examples/submit-cmdstan-job.html#check-output",
+    "href": "examples/submit-cmdstan-job.html#check-output",
+    "title": "Submit a CmdStan Job",
+    "section": "5 Check output",
+    "text": "5 Check output\ncat cmdstan-test.out",
+    "crumbs": [
+      "Examples",
+      "Submit a CmdStan Job"
+    ]
+  },
+  {
+    "objectID": "examples/submit-cmdstan-job.html#notes",
+    "href": "examples/submit-cmdstan-job.html#notes",
+    "title": "Submit a CmdStan Job",
+    "section": "6 Notes",
+    "text": "6 Notes\nCmdStan models can use multiple CPU threads when the model and settings support threading.\nOnly request multiple CPUs if your model can use them.",
+    "crumbs": [
+      "Examples",
+      "Submit a CmdStan Job"
+    ]
+  },
+  {
+    "objectID": "examples/submit-r-job.html",
+    "href": "examples/submit-r-job.html",
+    "title": "Submit an R Job",
+    "section": "",
+    "text": "This example shows how to submit an R script using Slurm.",
+    "crumbs": [
+      "Examples",
+      "Submit an R Job"
+    ]
+  },
+  {
+    "objectID": "examples/submit-r-job.html#example-r-script",
+    "href": "examples/submit-r-job.html#example-r-script",
+    "title": "Submit an R Job",
+    "section": "1 Example R script",
+    "text": "1 Example R script\nCreate analysis.R:\nprint(\"Running R analysis\")\nprint(Sys.info())\nprint(Sys.time())",
+    "crumbs": [
+      "Examples",
+      "Submit an R Job"
+    ]
+  },
+  {
+    "objectID": "examples/submit-r-job.html#example-slurm-script",
+    "href": "examples/submit-r-job.html#example-slurm-script",
+    "title": "Submit an R Job",
+    "section": "2 Example Slurm script",
+    "text": "2 Example Slurm script\nCreate run-r.sh:\n#!/bin/bash\n#SBATCH --job-name=r-test\n#SBATCH --cpus-per-task=1\n#SBATCH --mem=2G\n#SBATCH --output=r-test.out\n#SBATCH --error=r-test.err\n\nconda activate R-4.4\n\nRscript analysis.R",
+    "crumbs": [
+      "Examples",
+      "Submit an R Job"
+    ]
+  },
+  {
+    "objectID": "examples/submit-r-job.html#submit-the-job",
+    "href": "examples/submit-r-job.html#submit-the-job",
+    "title": "Submit an R Job",
+    "section": "3 Submit the job",
+    "text": "3 Submit the job\nsbatch run-r.sh",
+    "crumbs": [
+      "Examples",
+      "Submit an R Job"
+    ]
+  },
+  {
+    "objectID": "examples/submit-r-job.html#check-the-queue",
+    "href": "examples/submit-r-job.html#check-the-queue",
+    "title": "Submit an R Job",
+    "section": "4 Check the queue",
+    "text": "4 Check the queue\nsqueue -u $USER",
+    "crumbs": [
+      "Examples",
+      "Submit an R Job"
+    ]
+  },
+  {
+    "objectID": "examples/submit-r-job.html#check-output",
+    "href": "examples/submit-r-job.html#check-output",
+    "title": "Submit an R Job",
+    "section": "5 Check output",
+    "text": "5 Check output\ncat r-test.out",
+    "crumbs": [
+      "Examples",
+      "Submit an R Job"
+    ]
+  },
+  {
+    "objectID": "examples/submit-r-job.html#notes",
+    "href": "examples/submit-r-job.html#notes",
+    "title": "Submit an R Job",
+    "section": "6 Notes",
+    "text": "6 Notes\nIf conda activate does not work inside the Slurm script, you may need to initialise conda first or use the full path to the R executable inside the environment.",
+    "crumbs": [
+      "Examples",
+      "Submit an R Job"
+    ]
+  },
+  {
+    "objectID": "getting-started.html",
+    "href": "getting-started.html",
+    "title": "Getting Started",
+    "section": "",
+    "text": "This page introduces the basic information needed before using the MAEMOD research workstation.",
+    "crumbs": [
+      "Getting Started"
+    ]
+  },
+  {
+    "objectID": "getting-started.html#what-you-need",
+    "href": "getting-started.html#what-you-need",
+    "title": "Getting Started",
+    "section": "1 What you need",
+    "text": "1 What you need\nBefore logging in, you need:\n\na workstation user account\na password\nnetwork access to the workstation\nan SSH client\n\nIf you do not yet have an account, contact the workstation administrator.",
+    "crumbs": [
+      "Getting Started"
+    ]
+  },
+  {
+    "objectID": "getting-started.html#first-login",
+    "href": "getting-started.html#first-login",
+    "title": "Getting Started",
+    "section": "2 First login",
+    "text": "2 First login\nFrom Linux, macOS, or Windows Terminal:\nssh username@mod-linux-ws01\nReplace username with your own workstation username.",
+    "crumbs": [
+      "Getting Started"
+    ]
+  },
+  {
+    "objectID": "getting-started.html#change-your-password",
+    "href": "getting-started.html#change-your-password",
+    "title": "Getting Started",
+    "section": "3 Change your password",
+    "text": "3 Change your password\nAfter your first login, change your password:\npasswd\nFollow the instructions on screen.",
+    "crumbs": [
+      "Getting Started"
+    ]
+  },
+  {
+    "objectID": "getting-started.html#check-your-username",
+    "href": "getting-started.html#check-your-username",
+    "title": "Getting Started",
+    "section": "4 Check your username",
+    "text": "4 Check your username\nwhoami",
+    "crumbs": [
+      "Getting Started"
+    ]
+  },
+  {
+    "objectID": "getting-started.html#check-the-hostname",
+    "href": "getting-started.html#check-the-hostname",
+    "title": "Getting Started",
+    "section": "5 Check the hostname",
+    "text": "5 Check the hostname\nhostname\nYou should see:\nmod-linux-ws01",
+    "crumbs": [
+      "Getting Started"
+    ]
+  },
+  {
+    "objectID": "getting-started.html#check-your-home-directory",
+    "href": "getting-started.html#check-your-home-directory",
+    "title": "Getting Started",
+    "section": "6 Check your home directory",
+    "text": "6 Check your home directory\npwd\nUsually this will show something like:\n/home/username",
+    "crumbs": [
+      "Getting Started"
+    ]
+  },
+  {
+    "objectID": "getting-started.html#check-system-status",
+    "href": "getting-started.html#check-system-status",
+    "title": "Getting Started",
+    "section": "7 Check system status",
+    "text": "7 Check system status\nsinfo\nThis checks the Slurm scheduler.",
+    "crumbs": [
+      "Getting Started"
+    ]
+  },
+  {
+    "objectID": "getting-started.html#basic-etiquette",
+    "href": "getting-started.html#basic-etiquette",
+    "title": "Getting Started",
+    "section": "8 Basic etiquette",
+    "text": "8 Basic etiquette\nPlease avoid running heavy computations directly in the login shell.\nFor long analyses, simulations, model fitting, or parallel jobs, use Slurm.",
+    "crumbs": [
+      "Getting Started"
+    ]
+  },
+  {
+    "objectID": "quick-start.html",
+    "href": "quick-start.html",
+    "title": "Quick Start",
+    "section": "",
+    "text": "This page gives the shortest path to start using the workstation.",
+    "crumbs": [
+      "Quick Start"
+    ]
+  },
+  {
+    "objectID": "quick-start.html#connect-to-the-workstation",
+    "href": "quick-start.html#connect-to-the-workstation",
+    "title": "Quick Start",
+    "section": "1 1. Connect to the workstation",
+    "text": "1 1. Connect to the workstation\nReplace username with your own username.\nssh username@mod-linux-ws01\nIf you are using Windows, you can connect using PuTTY, MobaXterm, Windows Terminal, or VS Code Remote SSH.",
+    "crumbs": [
+      "Quick Start"
+    ]
+  },
+  {
+    "objectID": "quick-start.html#check-where-you-are",
+    "href": "quick-start.html#check-where-you-are",
+    "title": "Quick Start",
+    "section": "2 2. Check where you are",
+    "text": "2 2. Check where you are\nhostname\nwhoami\npwd",
+    "crumbs": [
+      "Quick Start"
+    ]
+  },
+  {
+    "objectID": "quick-start.html#check-the-workstation-status",
+    "href": "quick-start.html#check-the-workstation-status",
+    "title": "Quick Start",
+    "section": "3 3. Check the workstation status",
+    "text": "3 3. Check the workstation status\nsinfo\nThis shows whether the Slurm compute partition is available.",
+    "crumbs": [
+      "Quick Start"
+    ]
+  },
+  {
+    "objectID": "quick-start.html#check-your-files",
+    "href": "quick-start.html#check-your-files",
+    "title": "Quick Start",
+    "section": "4 4. Check your files",
+    "text": "4 4. Check your files\nls\nls -lh",
+    "crumbs": [
+      "Quick Start"
+    ]
+  },
+  {
+    "objectID": "quick-start.html#activate-a-software-environment",
+    "href": "quick-start.html#activate-a-software-environment",
+    "title": "Quick Start",
+    "section": "5 5. Activate a software environment",
+    "text": "5 5. Activate a software environment\nExample for R:\nconda activate R-4.4\nExample for Python:\nconda activate py311\nThe exact environment names may change. To see available conda environments:\nconda env list\nor:\nmamba env list",
+    "crumbs": [
+      "Quick Start"
+    ]
+  },
+  {
+    "objectID": "quick-start.html#submit-a-job",
+    "href": "quick-start.html#submit-a-job",
+    "title": "Quick Start",
+    "section": "6 6. Submit a job",
+    "text": "6 6. Submit a job\nCreate a file called job.sh:\nnano job.sh\nExample Slurm job:\n#!/bin/bash\n#SBATCH --job-name=test-job\n#SBATCH --cpus-per-task=1\n#SBATCH --mem=2G\n#SBATCH --output=test-job.out\n\nhostname\ndate\nSubmit it:\nsbatch job.sh\nCheck the queue:\nsqueue\nCheck the output:\ncat test-job.out",
+    "crumbs": [
+      "Quick Start"
+    ]
+  },
+  {
+    "objectID": "quick-start.html#log-out",
+    "href": "quick-start.html#log-out",
+    "title": "Quick Start",
+    "section": "7 7. Log out",
+    "text": "7 7. Log out\nexit",
+    "crumbs": [
+      "Quick Start"
+    ]
+  },
+  {
+    "objectID": "slurm.html",
+    "href": "slurm.html",
+    "title": "Using Slurm",
+    "section": "",
+    "text": "Slurm is used to manage jobs on the workstation.\nPlease use Slurm for long-running or computationally intensive work.",
+    "crumbs": [
+      "Using Slurm"
+    ]
+  },
+  {
+    "objectID": "slurm.html#check-node-status",
+    "href": "slurm.html#check-node-status",
+    "title": "Using Slurm",
+    "section": "1 Check node status",
+    "text": "1 Check node status\nsinfo\nExample output may show:\nPARTITION AVAIL  TIMELIMIT  NODES  STATE NODELIST\ncompute*     up   infinite      1   idle mod-linux-ws01",
+    "crumbs": [
+      "Using Slurm"
+    ]
+  },
+  {
+    "objectID": "slurm.html#check-running-jobs",
+    "href": "slurm.html#check-running-jobs",
+    "title": "Using Slurm",
+    "section": "2 Check running jobs",
+    "text": "2 Check running jobs\nsqueue\nShow only your jobs:\nsqueue -u $USER",
+    "crumbs": [
+      "Using Slurm"
+    ]
+  },
+  {
+    "objectID": "slurm.html#submit-a-job",
+    "href": "slurm.html#submit-a-job",
+    "title": "Using Slurm",
+    "section": "3 Submit a job",
+    "text": "3 Submit a job\nCreate a job script, for example job.sh:\n#!/bin/bash\n#SBATCH --job-name=my-job\n#SBATCH --cpus-per-task=1\n#SBATCH --mem=2G\n#SBATCH --output=my-job.out\n\nhostname\ndate\nSubmit the job:\nsbatch job.sh",
+    "crumbs": [
+      "Using Slurm"
+    ]
+  },
+  {
+    "objectID": "slurm.html#cancel-a-job",
+    "href": "slurm.html#cancel-a-job",
+    "title": "Using Slurm",
+    "section": "4 Cancel a job",
+    "text": "4 Cancel a job\nscancel JOBID\nReplace JOBID with the job ID shown by squeue.",
+    "crumbs": [
+      "Using Slurm"
+    ]
+  },
+  {
+    "objectID": "slurm.html#interactive-job",
+    "href": "slurm.html#interactive-job",
+    "title": "Using Slurm",
+    "section": "5 Interactive job",
+    "text": "5 Interactive job\nUse this when you need an interactive shell with allocated resources:\nsrun --cpus-per-task=4 --mem=8G --pty bash",
+    "crumbs": [
+      "Using Slurm"
+    ]
+  },
+  {
+    "objectID": "slurm.html#request-cpus",
+    "href": "slurm.html#request-cpus",
+    "title": "Using Slurm",
+    "section": "6 Request CPUs",
+    "text": "6 Request CPUs\n#SBATCH --cpus-per-task=4\nUse more CPUs only if your program can actually use them.",
+    "crumbs": [
+      "Using Slurm"
+    ]
+  },
+  {
+    "objectID": "slurm.html#request-memory",
+    "href": "slurm.html#request-memory",
+    "title": "Using Slurm",
+    "section": "7 Request memory",
+    "text": "7 Request memory\n#SBATCH --mem=8G\nIf a job fails because of memory, increase this value.",
+    "crumbs": [
+      "Using Slurm"
+    ]
+  },
+  {
+    "objectID": "slurm.html#output-files",
+    "href": "slurm.html#output-files",
+    "title": "Using Slurm",
+    "section": "8 Output files",
+    "text": "8 Output files\nThis line writes job output to a file:\n#SBATCH --output=my-job.out\nFor error output:\n#SBATCH --error=my-job.err",
+    "crumbs": [
+      "Using Slurm"
+    ]
+  },
+  {
+    "objectID": "slurm.html#check-job-details",
+    "href": "slurm.html#check-job-details",
+    "title": "Using Slurm",
+    "section": "9 Check job details",
+    "text": "9 Check job details\nscontrol show job JOBID",
+    "crumbs": [
+      "Using Slurm"
+    ]
+  },
+  {
+    "objectID": "slurm.html#good-slurm-habits",
+    "href": "slurm.html#good-slurm-habits",
+    "title": "Using Slurm",
+    "section": "10 Good Slurm habits",
+    "text": "10 Good Slurm habits\n\ndo not request all CPUs unless necessary\ndo not request excessive memory\nsave output files clearly\ncheck logs after jobs finish\ncancel jobs that are no longer needed",
+    "crumbs": [
+      "Using Slurm"
+    ]
+  },
+  {
+    "objectID": "troubleshooting.html",
+    "href": "troubleshooting.html",
+    "title": "Troubleshooting",
+    "section": "",
+    "text": "This page lists common problems and possible solutions.",
+    "crumbs": [
+      "Troubleshooting"
+    ]
+  },
+  {
+    "objectID": "troubleshooting.html#cannot-connect-by-ssh",
+    "href": "troubleshooting.html#cannot-connect-by-ssh",
+    "title": "Troubleshooting",
+    "section": "1 Cannot connect by SSH",
+    "text": "1 Cannot connect by SSH\nCheck:\n\nAre you connected to the correct network?\nIs the hostname correct?\nIs your username correct?\nIs the workstation online?\n\nTry:\nssh username@mod-linux-ws01",
+    "crumbs": [
+      "Troubleshooting"
+    ]
+  },
+  {
+    "objectID": "troubleshooting.html#permission-denied",
+    "href": "troubleshooting.html#permission-denied",
+    "title": "Troubleshooting",
+    "section": "2 Permission denied",
+    "text": "2 Permission denied\nCheck your username:\nwhoami\nCheck your groups:\ngroups\nYou may need to be added to the correct group.",
+    "crumbs": [
+      "Troubleshooting"
+    ]
+  },
+  {
+    "objectID": "troubleshooting.html#conda-command-not-found",
+    "href": "troubleshooting.html#conda-command-not-found",
+    "title": "Troubleshooting",
+    "section": "3 Conda command not found",
+    "text": "3 Conda command not found\nCheck:\nwhich conda\nIf nothing appears, conda may not be loaded in your shell.\nTry logging out and logging in again.",
+    "crumbs": [
+      "Troubleshooting"
+    ]
+  },
+  {
+    "objectID": "troubleshooting.html#environment-not-found",
+    "href": "troubleshooting.html#environment-not-found",
+    "title": "Troubleshooting",
+    "section": "4 Environment not found",
+    "text": "4 Environment not found\nList environments:\nconda env list\nCheck the exact environment name.",
+    "crumbs": [
+      "Troubleshooting"
+    ]
+  },
+  {
+    "objectID": "troubleshooting.html#job-is-pending",
+    "href": "troubleshooting.html#job-is-pending",
+    "title": "Troubleshooting",
+    "section": "5 Job is pending",
+    "text": "5 Job is pending\nCheck queue:\nsqueue\nCheck job details:\nscontrol show job JOBID\nCommon reasons:\n\nnot enough requested resources available\nSlurm configuration issue\nnode is busy",
+    "crumbs": [
+      "Troubleshooting"
+    ]
+  },
+  {
+    "objectID": "troubleshooting.html#job-ran-but-produced-no-output",
+    "href": "troubleshooting.html#job-ran-but-produced-no-output",
+    "title": "Troubleshooting",
+    "section": "6 Job ran but produced no output",
+    "text": "6 Job ran but produced no output\nCheck your Slurm output file:\nls -lh\ncat job-name.out\ncat job-name.err\nCheck whether your script actually writes output.",
+    "crumbs": [
+      "Troubleshooting"
+    ]
+  },
+  {
+    "objectID": "troubleshooting.html#out-of-memory",
+    "href": "troubleshooting.html#out-of-memory",
+    "title": "Troubleshooting",
+    "section": "7 Out of memory",
+    "text": "7 Out of memory\nIf the error suggests memory problems, increase memory request:\n#SBATCH --mem=8G\nUse only as much as needed.",
+    "crumbs": [
+      "Troubleshooting"
+    ]
+  },
+  {
+    "objectID": "troubleshooting.html#disk-full",
+    "href": "troubleshooting.html#disk-full",
+    "title": "Troubleshooting",
+    "section": "8 Disk full",
+    "text": "8 Disk full\nCheck disk space:\ndf -h\nCheck folder size:\ndu -sh .\nFind large files:\nfind . -type f -size +1G",
+    "crumbs": [
+      "Troubleshooting"
+    ]
+  },
+  {
+    "objectID": "troubleshooting.html#command-not-found",
+    "href": "troubleshooting.html#command-not-found",
+    "title": "Troubleshooting",
+    "section": "9 Command not found",
+    "text": "9 Command not found\nCheck whether the software is installed:\nwhich command_name\nExample:\nwhich R\nwhich python\nwhich quarto\nYou may need to activate the correct environment.",
+    "crumbs": [
+      "Troubleshooting"
+    ]
+  }
+]
