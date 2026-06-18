@@ -24,7 +24,7 @@
     "href": "index.html#how-to-use-this-guide",
     "title": "MAEMOD Research Workstation User Guide",
     "section": "2 How to use this guide",
-    "text": "2 How to use this guide\nNew users should start with:\n\nQuick Start\nConnecting to the Workstation\nBasic Linux Commands\nUsing Slurm\n\nUsers who already know Linux can go directly to the R, Python, CmdStan, and Slurm sections.",
+    "text": "2 How to use this guide\nNew users should start with:\n\nQuick Start\nConnecting to the Workstation\nBasic Linux Commands\nR Package Management\nUsing Slurm\n\nUsers who already know Linux can go directly to the R, Python, CmdStan, and Slurm sections.",
     "crumbs": [
       "Home"
     ]
@@ -184,7 +184,17 @@
     "href": "r-python-cmdstan.html",
     "title": "Using R, Python, and CmdStan",
     "section": "",
-    "text": "This workstation supports scientific computing with R, Python, and CmdStan.\nSoftware may be managed using Miniforge, Conda, and Mamba.",
+    "text": "This workstation supports scientific computing with R, Python, and CmdStan.\nSoftware is mainly managed using Miniforge, Conda, and Mamba.",
+    "crumbs": [
+      "Using R, Python, and CmdStan"
+    ]
+  },
+  {
+    "objectID": "r-python-cmdstan.html#main-idea",
+    "href": "r-python-cmdstan.html#main-idea",
+    "title": "Using R, Python, and CmdStan",
+    "section": "1 Main idea",
+    "text": "1 Main idea\nThe workstation separates software into different levels:\n\n\n\n\n\n\n\n\nLevel\nExample\nWho manages it?\n\n\n\n\nSystem software\nSlurm, Quarto, LaTeX, system libraries\nAdministrator\n\n\nShared conda environments\nR-4.4, py311\nAdministrator/RSE team\n\n\nProject R packages\nrenv project library\nProject users\n\n\nPersonal packages\nuser home directory\nIndividual user\n\n\n\nFor R projects, the recommended approach is:\nshared conda R version + project-specific renv library\nThis means everyone may use the same R version from conda, but each serious project can keep its own R package versions using renv.",
     "crumbs": [
       "Using R, Python, and CmdStan"
     ]
@@ -193,8 +203,8 @@
     "objectID": "r-python-cmdstan.html#check-conda",
     "href": "r-python-cmdstan.html#check-conda",
     "title": "Using R, Python, and CmdStan",
-    "section": "1 Check conda",
-    "text": "1 Check conda\nwhich conda\nIf conda is available, this should show a path.",
+    "section": "2 Check conda",
+    "text": "2 Check conda\nwhich conda\nIf conda is available, this should show a path.",
     "crumbs": [
       "Using R, Python, and CmdStan"
     ]
@@ -203,8 +213,8 @@
     "objectID": "r-python-cmdstan.html#list-available-environments",
     "href": "r-python-cmdstan.html#list-available-environments",
     "title": "Using R, Python, and CmdStan",
-    "section": "2 List available environments",
-    "text": "2 List available environments\nconda env list\nor:\nmamba env list",
+    "section": "3 List available environments",
+    "text": "3 List available environments\nconda env list\nor:\nmamba env list",
     "crumbs": [
       "Using R, Python, and CmdStan"
     ]
@@ -213,8 +223,8 @@
     "objectID": "r-python-cmdstan.html#activate-an-environment",
     "href": "r-python-cmdstan.html#activate-an-environment",
     "title": "Using R, Python, and CmdStan",
-    "section": "3 Activate an environment",
-    "text": "3 Activate an environment\nExample:\nconda activate R-4.4\nor:\nconda activate py311\nThe exact environment names depend on what has been installed.",
+    "section": "4 Activate an environment",
+    "text": "4 Activate an environment\nExample for R:\nconda activate R-4.4\nExample for Python:\nconda activate py311\nThe exact environment names depend on what has been installed.",
     "crumbs": [
       "Using R, Python, and CmdStan"
     ]
@@ -223,8 +233,8 @@
     "objectID": "r-python-cmdstan.html#deactivate-an-environment",
     "href": "r-python-cmdstan.html#deactivate-an-environment",
     "title": "Using R, Python, and CmdStan",
-    "section": "4 Deactivate an environment",
-    "text": "4 Deactivate an environment\nconda deactivate",
+    "section": "5 Deactivate an environment",
+    "text": "5 Deactivate an environment\nconda deactivate",
     "crumbs": [
       "Using R, Python, and CmdStan"
     ]
@@ -233,8 +243,18 @@
     "objectID": "r-python-cmdstan.html#r",
     "href": "r-python-cmdstan.html#r",
     "title": "Using R, Python, and CmdStan",
-    "section": "5 R",
-    "text": "5 R\nStart R:\nR\nRun an R script:\nRscript analysis.R\nInstall an R package:\ninstall.packages(\"tidyverse\")\nFor shared environments, package installation permissions may depend on how the environment was created.",
+    "section": "6 R",
+    "text": "6 R\nActivate the R environment:\nconda activate R-4.4\nStart R:\nR\nRun an R script:\nRscript analysis.R\nCheck the R package library paths:\n.libPaths()",
+    "crumbs": [
+      "Using R, Python, and CmdStan"
+    ]
+  },
+  {
+    "objectID": "r-python-cmdstan.html#where-should-r-packages-be-installed",
+    "href": "r-python-cmdstan.html#where-should-r-packages-be-installed",
+    "title": "Using R, Python, and CmdStan",
+    "section": "7 Where should R packages be installed?",
+    "text": "7 Where should R packages be installed?\nFor most users:\n\nquick personal tests can use the personal R library\nreproducible project work should use renv\nshared packages for all users should be installed by the administrator in the shared conda environment\n\nDo not assume that installing an R package in your own account makes it available to other users.\nSee R Package Management for the full policy.",
     "crumbs": [
       "Using R, Python, and CmdStan"
     ]
@@ -243,8 +263,8 @@
     "objectID": "r-python-cmdstan.html#python",
     "href": "r-python-cmdstan.html#python",
     "title": "Using R, Python, and CmdStan",
-    "section": "6 Python",
-    "text": "6 Python\nStart Python:\npython\nRun a Python script:\npython analysis.py\nInstall Python packages using conda or mamba when possible:\nmamba install numpy pandas scipy matplotlib\nFor project-specific packages, consider using a project-specific environment.",
+    "section": "8 Python",
+    "text": "8 Python\nActivate a Python environment:\nconda activate py311\nStart Python:\npython\nRun a Python script:\npython analysis.py\nInstall Python packages using conda or mamba when possible:\nmamba install numpy pandas scipy matplotlib\nFor project-specific work, consider creating a project-specific environment.",
     "crumbs": [
       "Using R, Python, and CmdStan"
     ]
@@ -253,8 +273,18 @@
     "objectID": "r-python-cmdstan.html#cmdstan",
     "href": "r-python-cmdstan.html#cmdstan",
     "title": "Using R, Python, and CmdStan",
-    "section": "7 CmdStan",
-    "text": "7 CmdStan\nCmdStan is useful for users who prefer CmdStan or CmdStanR rather than RStan.\nCheck whether CmdStan is available:\nls /data/software\nIf using CmdStanR in R:\nlibrary(cmdstanr)\ncmdstanr::cmdstan_path()\nSet CmdStan path if needed:\ncmdstanr::set_cmdstan_path(\"/data/software/cmdstan\")",
+    "section": "9 CmdStan",
+    "text": "9 CmdStan\nCmdStan is useful for users who prefer CmdStan or CmdStanR rather than RStan.\nCheck whether CmdStan is available:\nls /data/software\nIf using CmdStanR in R:\nlibrary(cmdstanr)\ncmdstanr::cmdstan_path()\nSet CmdStan path if needed:\ncmdstanr::set_cmdstan_path(\"/data/software/cmdstan\")",
+    "crumbs": [
+      "Using R, Python, and CmdStan"
+    ]
+  },
+  {
+    "objectID": "r-python-cmdstan.html#recommended-workflow-for-r-cmdstanr-projects",
+    "href": "r-python-cmdstan.html#recommended-workflow-for-r-cmdstanr-projects",
+    "title": "Using R, Python, and CmdStan",
+    "section": "10 Recommended workflow for R + CmdStanR projects",
+    "text": "10 Recommended workflow for R + CmdStanR projects\ncd /data/projects/my-stan-project\nconda activate R-4.4\nR\nInside R:\ninstall.packages(\"renv\")\nrenv::init()\ninstall.packages(\"cmdstanr\")\ncmdstanr::set_cmdstan_path(\"/data/software/cmdstan\")\nrenv::snapshot()\nFor future work in the same project:\ncd /data/projects/my-stan-project\nconda activate R-4.4\nR\nThen inside R:\nrenv::restore()",
     "crumbs": [
       "Using R, Python, and CmdStan"
     ]
@@ -263,8 +293,8 @@
     "objectID": "r-python-cmdstan.html#recommended-workflow",
     "href": "r-python-cmdstan.html#recommended-workflow",
     "title": "Using R, Python, and CmdStan",
-    "section": "8 Recommended workflow",
-    "text": "8 Recommended workflow\nFor reproducible projects:\n\nkeep scripts in a project folder\nrecord the environment used\nrun long jobs through Slurm\nsave outputs to results/\nuse Git when possible",
+    "section": "11 Recommended workflow",
+    "text": "11 Recommended workflow\nFor reproducible projects:\n\nkeep scripts in a project folder\nactivate the correct conda environment\nuse renv for R package versions\nrun long jobs through Slurm\nsave outputs to results/\nuse Git when possible",
     "crumbs": [
       "Using R, Python, and CmdStan"
     ]
@@ -273,236 +303,414 @@
     "objectID": "r-python-cmdstan.html#example-environment-note",
     "href": "r-python-cmdstan.html#example-environment-note",
     "title": "Using R, Python, and CmdStan",
-    "section": "9 Example environment note",
-    "text": "9 Example environment note\nCreate a file called environment-notes.txt in your project folder:\nDate: 2026-06-18\nWorkstation: mod-linux-ws01\nEnvironment: R-4.4\nMain packages: tidyverse, cmdstanr, posterior",
+    "section": "12 Example environment note",
+    "text": "12 Example environment note\nCreate a file called environment-notes.txt in your project folder:\nDate: 2026-06-18\nWorkstation: mod-linux-ws01\nEnvironment: R-4.4\nR package management: renv\nMain packages: tidyverse, cmdstanr, posterior",
     "crumbs": [
       "Using R, Python, and CmdStan"
     ]
   },
   {
-    "objectID": "good-practice.html",
-    "href": "good-practice.html",
-    "title": "Good Practice",
+    "objectID": "quick-start.html",
+    "href": "quick-start.html",
+    "title": "Quick Start",
     "section": "",
-    "text": "This page gives recommended practices for using the shared workstation.",
+    "text": "This page gives the shortest path to start using the workstation.",
     "crumbs": [
-      "Good Practice"
+      "Quick Start"
     ]
   },
   {
-    "objectID": "good-practice.html#use-slurm-for-long-jobs",
-    "href": "good-practice.html#use-slurm-for-long-jobs",
-    "title": "Good Practice",
-    "section": "1 Use Slurm for long jobs",
-    "text": "1 Use Slurm for long jobs\nDo not run long or intensive jobs directly in the login terminal.\nUse Slurm:\nsbatch job.sh",
+    "objectID": "quick-start.html#connect-to-the-workstation",
+    "href": "quick-start.html#connect-to-the-workstation",
+    "title": "Quick Start",
+    "section": "1 1. Connect to the workstation",
+    "text": "1 1. Connect to the workstation\nReplace username with your own username.\nssh username@mod-linux-ws01\nIf you are using Windows, you can connect using PuTTY, MobaXterm, Windows Terminal, or VS Code Remote SSH.",
     "crumbs": [
-      "Good Practice"
+      "Quick Start"
     ]
   },
   {
-    "objectID": "good-practice.html#organise-project-folders",
-    "href": "good-practice.html#organise-project-folders",
-    "title": "Good Practice",
-    "section": "2 Organise project folders",
-    "text": "2 Organise project folders\nRecommended structure:\nproject-name/\n├── data/\n├── scripts/\n├── results/\n├── figures/\n├── reports/\n└── README.md",
+    "objectID": "quick-start.html#check-where-you-are",
+    "href": "quick-start.html#check-where-you-are",
+    "title": "Quick Start",
+    "section": "2 2. Check where you are",
+    "text": "2 2. Check where you are\nhostname\nwhoami\npwd",
     "crumbs": [
-      "Good Practice"
+      "Quick Start"
     ]
   },
   {
-    "objectID": "good-practice.html#keep-raw-data-unchanged",
-    "href": "good-practice.html#keep-raw-data-unchanged",
-    "title": "Good Practice",
-    "section": "3 Keep raw data unchanged",
-    "text": "3 Keep raw data unchanged\nDo not edit raw data directly.\nSave cleaned or transformed data in a separate folder.",
+    "objectID": "quick-start.html#check-the-workstation-status",
+    "href": "quick-start.html#check-the-workstation-status",
+    "title": "Quick Start",
+    "section": "3 3. Check the workstation status",
+    "text": "3 3. Check the workstation status\nsinfo\nThis shows whether the Slurm compute partition is available.",
     "crumbs": [
-      "Good Practice"
+      "Quick Start"
     ]
   },
   {
-    "objectID": "good-practice.html#use-clear-filenames",
-    "href": "good-practice.html#use-clear-filenames",
-    "title": "Good Practice",
-    "section": "4 Use clear filenames",
-    "text": "4 Use clear filenames\nGood examples:\nanalysis-model-v1.R\nresults-2026-06-18.csv\nfigure-transmission-map.png\nAvoid:\nnew.R\ntest2.csv\nfinal_final_v3.csv",
+    "objectID": "quick-start.html#check-your-files",
+    "href": "quick-start.html#check-your-files",
+    "title": "Quick Start",
+    "section": "4 4. Check your files",
+    "text": "4 4. Check your files\nls\nls -lh",
     "crumbs": [
-      "Good Practice"
+      "Quick Start"
     ]
   },
   {
-    "objectID": "good-practice.html#record-software-versions",
-    "href": "good-practice.html#record-software-versions",
-    "title": "Good Practice",
-    "section": "5 Record software versions",
-    "text": "5 Record software versions\nUseful commands:\nR --version\npython --version\nquarto --version\nFor R:\nsessionInfo()\nFor Python:\npip freeze\nor:\nconda list",
+    "objectID": "quick-start.html#activate-a-software-environment",
+    "href": "quick-start.html#activate-a-software-environment",
+    "title": "Quick Start",
+    "section": "5 5. Activate a software environment",
+    "text": "5 5. Activate a software environment\nExample for R:\nconda activate R-4.4\nExample for Python:\nconda activate py311\nThe exact environment names may change. To see available conda environments:\nconda env list\nor:\nmamba env list",
     "crumbs": [
-      "Good Practice"
+      "Quick Start"
     ]
   },
   {
-    "objectID": "good-practice.html#use-git-for-code",
-    "href": "good-practice.html#use-git-for-code",
-    "title": "Good Practice",
-    "section": "6 Use Git for code",
-    "text": "6 Use Git for code\nUse Git for scripts, reports, and documentation.\nDo not put very large data files into Git unless there is a clear reason.",
+    "objectID": "quick-start.html#submit-a-job",
+    "href": "quick-start.html#submit-a-job",
+    "title": "Quick Start",
+    "section": "6 6. Submit a job",
+    "text": "6 6. Submit a job\nCreate a file called job.sh:\nnano job.sh\nExample Slurm job:\n#!/bin/bash\n#SBATCH --job-name=test-job\n#SBATCH --cpus-per-task=1\n#SBATCH --mem=2G\n#SBATCH --output=test-job.out\n\nhostname\ndate\nSubmit it:\nsbatch job.sh\nCheck the queue:\nsqueue\nCheck the output:\ncat test-job.out",
     "crumbs": [
-      "Good Practice"
+      "Quick Start"
     ]
   },
   {
-    "objectID": "good-practice.html#clean-up-old-files",
-    "href": "good-practice.html#clean-up-old-files",
-    "title": "Good Practice",
-    "section": "7 Clean up old files",
-    "text": "7 Clean up old files\nCheck folder size:\ndu -sh .\nRemove temporary files that are no longer needed.",
+    "objectID": "quick-start.html#log-out",
+    "href": "quick-start.html#log-out",
+    "title": "Quick Start",
+    "section": "7 7. Log out",
+    "text": "7 7. Log out\nexit",
     "crumbs": [
-      "Good Practice"
+      "Quick Start"
     ]
   },
   {
-    "objectID": "good-practice.html#be-considerate",
-    "href": "good-practice.html#be-considerate",
-    "title": "Good Practice",
-    "section": "8 Be considerate",
-    "text": "8 Be considerate\nThis is a shared workstation.\nPlease avoid using all CPUs or memory unless necessary.",
-    "crumbs": [
-      "Good Practice"
-    ]
-  },
-  {
-    "objectID": "file-storage.html",
-    "href": "file-storage.html",
-    "title": "File Storage and Project Folders",
+    "objectID": "getting-started.html",
+    "href": "getting-started.html",
+    "title": "Getting Started",
     "section": "",
-    "text": "This page explains where files should be stored.",
+    "text": "This page introduces the basic information needed before using the MAEMOD research workstation.",
     "crumbs": [
-      "File Storage and Project Folders"
+      "Getting Started"
     ]
   },
   {
-    "objectID": "file-storage.html#home-directory",
-    "href": "file-storage.html#home-directory",
-    "title": "File Storage and Project Folders",
-    "section": "1 Home directory",
-    "text": "1 Home directory\nYour home directory is:\n/home/username\nUse this for:\n\npersonal scripts\nsmall analyses\nconfiguration files\nnotes\n\nAvoid storing very large datasets in your home directory.",
+    "objectID": "getting-started.html#what-you-need",
+    "href": "getting-started.html#what-you-need",
+    "title": "Getting Started",
+    "section": "1 What you need",
+    "text": "1 What you need\nBefore logging in, you need:\n\na workstation user account\na password\nnetwork access to the workstation\nan SSH client\n\nIf you do not yet have an account, contact the workstation administrator.",
     "crumbs": [
-      "File Storage and Project Folders"
+      "Getting Started"
     ]
   },
   {
-    "objectID": "file-storage.html#shared-software",
-    "href": "file-storage.html#shared-software",
-    "title": "File Storage and Project Folders",
-    "section": "2 Shared software",
-    "text": "2 Shared software\nShared software is installed in:\n/data/software\nThis directory is managed by the workstation administrator.\nUsers should not normally install project data here.",
+    "objectID": "getting-started.html#first-login",
+    "href": "getting-started.html#first-login",
+    "title": "Getting Started",
+    "section": "2 First login",
+    "text": "2 First login\nFrom Linux, macOS, or Windows Terminal:\nssh username@mod-linux-ws01\nReplace username with your own workstation username.",
     "crumbs": [
-      "File Storage and Project Folders"
+      "Getting Started"
     ]
   },
   {
-    "objectID": "file-storage.html#shared-conda-environments",
-    "href": "file-storage.html#shared-conda-environments",
-    "title": "File Storage and Project Folders",
-    "section": "3 Shared conda environments",
-    "text": "3 Shared conda environments\nShared conda environments are stored in:\n/data/envs\nThese environments can be used by multiple users.\nExample:\nconda activate /data/envs/R-4.4\nor, if the environment name is configured:\nconda activate R-4.4",
+    "objectID": "getting-started.html#change-your-password",
+    "href": "getting-started.html#change-your-password",
+    "title": "Getting Started",
+    "section": "3 Change your password",
+    "text": "3 Change your password\nAfter your first login, change your password:\npasswd\nFollow the instructions on screen.",
     "crumbs": [
-      "File Storage and Project Folders"
+      "Getting Started"
     ]
   },
   {
-    "objectID": "file-storage.html#project-folders",
-    "href": "file-storage.html#project-folders",
-    "title": "File Storage and Project Folders",
-    "section": "4 Project folders",
-    "text": "4 Project folders\nProject data should be stored in a shared project location, for example:\n/data/projects\nA suggested project structure is:\nproject-name/\n├── data/\n│   ├── raw/\n│   └── processed/\n├── scripts/\n├── results/\n├── figures/\n├── reports/\n└── README.md",
+    "objectID": "getting-started.html#check-your-username",
+    "href": "getting-started.html#check-your-username",
+    "title": "Getting Started",
+    "section": "4 Check your username",
+    "text": "4 Check your username\nwhoami",
     "crumbs": [
-      "File Storage and Project Folders"
+      "Getting Started"
     ]
   },
   {
-    "objectID": "file-storage.html#recommended-practice",
-    "href": "file-storage.html#recommended-practice",
-    "title": "File Storage and Project Folders",
-    "section": "5 Recommended practice",
-    "text": "5 Recommended practice\nKeep raw data separate from processed data.\nDo not overwrite raw data.\nUse clear filenames and include dates or version numbers where useful.\nExample:\nresults/model-fit-2026-06-18.csv",
+    "objectID": "getting-started.html#check-the-hostname",
+    "href": "getting-started.html#check-the-hostname",
+    "title": "Getting Started",
+    "section": "5 Check the hostname",
+    "text": "5 Check the hostname\nhostname\nYou should see:\nmod-linux-ws01",
     "crumbs": [
-      "File Storage and Project Folders"
+      "Getting Started"
     ]
   },
   {
-    "objectID": "file-storage.html#check-disk-usage",
-    "href": "file-storage.html#check-disk-usage",
-    "title": "File Storage and Project Folders",
-    "section": "6 Check disk usage",
-    "text": "6 Check disk usage\nCheck available disk space:\ndf -h\nCheck the size of your folder:\ndu -sh .",
+    "objectID": "getting-started.html#check-your-home-directory",
+    "href": "getting-started.html#check-your-home-directory",
+    "title": "Getting Started",
+    "section": "6 Check your home directory",
+    "text": "6 Check your home directory\npwd\nUsually this will show something like:\n/home/username",
     "crumbs": [
-      "File Storage and Project Folders"
+      "Getting Started"
     ]
   },
   {
-    "objectID": "examples/submit-python-job.html",
-    "href": "examples/submit-python-job.html",
-    "title": "Submit a Python Job",
+    "objectID": "getting-started.html#check-system-status",
+    "href": "getting-started.html#check-system-status",
+    "title": "Getting Started",
+    "section": "7 Check system status",
+    "text": "7 Check system status\nsinfo\nThis checks the Slurm scheduler.",
+    "crumbs": [
+      "Getting Started"
+    ]
+  },
+  {
+    "objectID": "getting-started.html#basic-etiquette",
+    "href": "getting-started.html#basic-etiquette",
+    "title": "Getting Started",
+    "section": "8 Basic etiquette",
+    "text": "8 Basic etiquette\nPlease avoid running heavy computations directly in the login shell.\nFor long analyses, simulations, model fitting, or parallel jobs, use Slurm.",
+    "crumbs": [
+      "Getting Started"
+    ]
+  },
+  {
+    "objectID": "examples/submit-r-job.html",
+    "href": "examples/submit-r-job.html",
+    "title": "Submit an R Job",
     "section": "",
-    "text": "This example shows how to submit a Python script using Slurm.",
+    "text": "This example shows how to submit an R script using Slurm.",
     "crumbs": [
       "Examples",
-      "Submit a Python Job"
+      "Submit an R Job"
     ]
   },
   {
-    "objectID": "examples/submit-python-job.html#example-python-script",
-    "href": "examples/submit-python-job.html#example-python-script",
-    "title": "Submit a Python Job",
-    "section": "1 Example Python script",
-    "text": "1 Example Python script\nCreate analysis.py:\nimport platform\nfrom datetime import datetime\n\nprint(\"Running Python analysis\")\nprint(platform.node())\nprint(datetime.now())",
+    "objectID": "examples/submit-r-job.html#example-r-script",
+    "href": "examples/submit-r-job.html#example-r-script",
+    "title": "Submit an R Job",
+    "section": "1 Example R script",
+    "text": "1 Example R script\nCreate analysis.R:\nprint(\"Running R analysis\")\nprint(Sys.info())\nprint(Sys.time())",
     "crumbs": [
       "Examples",
-      "Submit a Python Job"
+      "Submit an R Job"
     ]
   },
   {
-    "objectID": "examples/submit-python-job.html#example-slurm-script",
-    "href": "examples/submit-python-job.html#example-slurm-script",
-    "title": "Submit a Python Job",
+    "objectID": "examples/submit-r-job.html#example-slurm-script",
+    "href": "examples/submit-r-job.html#example-slurm-script",
+    "title": "Submit an R Job",
     "section": "2 Example Slurm script",
-    "text": "2 Example Slurm script\nCreate run-python.sh:\n#!/bin/bash\n#SBATCH --job-name=python-test\n#SBATCH --cpus-per-task=1\n#SBATCH --mem=2G\n#SBATCH --output=python-test.out\n#SBATCH --error=python-test.err\n\nconda activate py311\n\npython analysis.py",
+    "text": "2 Example Slurm script\nCreate run-r.sh:\n#!/bin/bash\n#SBATCH --job-name=r-test\n#SBATCH --cpus-per-task=1\n#SBATCH --mem=2G\n#SBATCH --output=r-test.out\n#SBATCH --error=r-test.err\n\nconda activate R-4.4\n\nRscript analysis.R",
     "crumbs": [
       "Examples",
-      "Submit a Python Job"
+      "Submit an R Job"
     ]
   },
   {
-    "objectID": "examples/submit-python-job.html#submit-the-job",
-    "href": "examples/submit-python-job.html#submit-the-job",
-    "title": "Submit a Python Job",
+    "objectID": "examples/submit-r-job.html#submit-the-job",
+    "href": "examples/submit-r-job.html#submit-the-job",
+    "title": "Submit an R Job",
     "section": "3 Submit the job",
-    "text": "3 Submit the job\nsbatch run-python.sh",
+    "text": "3 Submit the job\nsbatch run-r.sh",
     "crumbs": [
       "Examples",
-      "Submit a Python Job"
+      "Submit an R Job"
     ]
   },
   {
-    "objectID": "examples/submit-python-job.html#check-output",
-    "href": "examples/submit-python-job.html#check-output",
-    "title": "Submit a Python Job",
-    "section": "4 Check output",
-    "text": "4 Check output\ncat python-test.out",
+    "objectID": "examples/submit-r-job.html#check-the-queue",
+    "href": "examples/submit-r-job.html#check-the-queue",
+    "title": "Submit an R Job",
+    "section": "4 Check the queue",
+    "text": "4 Check the queue\nsqueue -u $USER",
     "crumbs": [
       "Examples",
-      "Submit a Python Job"
+      "Submit an R Job"
     ]
   },
   {
-    "objectID": "examples/submit-python-job.html#notes",
-    "href": "examples/submit-python-job.html#notes",
-    "title": "Submit a Python Job",
-    "section": "5 Notes",
-    "text": "5 Notes\nFor larger analyses, request more memory or CPUs only when needed.\nExample:\n#SBATCH --cpus-per-task=4\n#SBATCH --mem=8G",
+    "objectID": "examples/submit-r-job.html#check-output",
+    "href": "examples/submit-r-job.html#check-output",
+    "title": "Submit an R Job",
+    "section": "5 Check output",
+    "text": "5 Check output\ncat r-test.out",
     "crumbs": [
       "Examples",
-      "Submit a Python Job"
+      "Submit an R Job"
+    ]
+  },
+  {
+    "objectID": "examples/submit-r-job.html#notes",
+    "href": "examples/submit-r-job.html#notes",
+    "title": "Submit an R Job",
+    "section": "6 Notes",
+    "text": "6 Notes\nIf conda activate does not work inside the Slurm script, you may need to initialise conda first or use the full path to the R executable inside the environment.",
+    "crumbs": [
+      "Examples",
+      "Submit an R Job"
+    ]
+  },
+  {
+    "objectID": "examples/submit-cmdstan-job.html",
+    "href": "examples/submit-cmdstan-job.html",
+    "title": "Submit a CmdStan Job",
+    "section": "",
+    "text": "This example shows how to run a CmdStan model using Slurm.",
+    "crumbs": [
+      "Examples",
+      "Submit a CmdStan Job"
+    ]
+  },
+  {
+    "objectID": "examples/submit-cmdstan-job.html#example-stan-model",
+    "href": "examples/submit-cmdstan-job.html#example-stan-model",
+    "title": "Submit a CmdStan Job",
+    "section": "1 Example Stan model",
+    "text": "1 Example Stan model\nCreate normal.stan:\ndata {\n  int&lt;lower=0&gt; N;\n  array[N] real y;\n}\nparameters {\n  real mu;\n  real&lt;lower=0&gt; sigma;\n}\nmodel {\n  y ~ normal(mu, sigma);\n}",
+    "crumbs": [
+      "Examples",
+      "Submit a CmdStan Job"
+    ]
+  },
+  {
+    "objectID": "examples/submit-cmdstan-job.html#compile-the-model",
+    "href": "examples/submit-cmdstan-job.html#compile-the-model",
+    "title": "Submit a CmdStan Job",
+    "section": "2 Compile the model",
+    "text": "2 Compile the model\nIf CmdStan is available in your environment:\nmake normal\nor use CmdStanR from R.",
+    "crumbs": [
+      "Examples",
+      "Submit a CmdStan Job"
+    ]
+  },
+  {
+    "objectID": "examples/submit-cmdstan-job.html#example-slurm-script-for-cmdstan",
+    "href": "examples/submit-cmdstan-job.html#example-slurm-script-for-cmdstan",
+    "title": "Submit a CmdStan Job",
+    "section": "3 Example Slurm script for CmdStan",
+    "text": "3 Example Slurm script for CmdStan\nCreate run-cmdstan.sh:\n#!/bin/bash\n#SBATCH --job-name=cmdstan-test\n#SBATCH --cpus-per-task=4\n#SBATCH --mem=8G\n#SBATCH --output=cmdstan-test.out\n#SBATCH --error=cmdstan-test.err\n\nexport STAN_NUM_THREADS=$SLURM_CPUS_PER_TASK\n\n./normal sample data file=data.json output file=output.csv",
+    "crumbs": [
+      "Examples",
+      "Submit a CmdStan Job"
+    ]
+  },
+  {
+    "objectID": "examples/submit-cmdstan-job.html#submit-the-job",
+    "href": "examples/submit-cmdstan-job.html#submit-the-job",
+    "title": "Submit a CmdStan Job",
+    "section": "4 Submit the job",
+    "text": "4 Submit the job\nsbatch run-cmdstan.sh",
+    "crumbs": [
+      "Examples",
+      "Submit a CmdStan Job"
+    ]
+  },
+  {
+    "objectID": "examples/submit-cmdstan-job.html#check-output",
+    "href": "examples/submit-cmdstan-job.html#check-output",
+    "title": "Submit a CmdStan Job",
+    "section": "5 Check output",
+    "text": "5 Check output\ncat cmdstan-test.out",
+    "crumbs": [
+      "Examples",
+      "Submit a CmdStan Job"
+    ]
+  },
+  {
+    "objectID": "examples/submit-cmdstan-job.html#notes",
+    "href": "examples/submit-cmdstan-job.html#notes",
+    "title": "Submit a CmdStan Job",
+    "section": "6 Notes",
+    "text": "6 Notes\nCmdStan models can use multiple CPU threads when the model and settings support threading.\nOnly request multiple CPUs if your model can use them.",
+    "crumbs": [
+      "Examples",
+      "Submit a CmdStan Job"
+    ]
+  },
+  {
+    "objectID": "admin-notes.html",
+    "href": "admin-notes.html",
+    "title": "Admin Notes",
+    "section": "",
+    "text": "This section is intended for workstation administrators.",
+    "crumbs": [
+      "Admin Notes"
+    ]
+  },
+  {
+    "objectID": "admin-notes.html#user-management",
+    "href": "admin-notes.html#user-management",
+    "title": "Admin Notes",
+    "section": "1 User management",
+    "text": "1 User management\nCreate a new user:\nsudo adduser username\nAdd user to a group:\nsudo usermod -aG research username\nCheck user groups:\ngroups username",
+    "crumbs": [
+      "Admin Notes"
+    ]
+  },
+  {
+    "objectID": "admin-notes.html#shared-directories",
+    "href": "admin-notes.html#shared-directories",
+    "title": "Admin Notes",
+    "section": "2 Shared directories",
+    "text": "2 Shared directories\nShared software:\n/data/software\nShared conda environments:\n/data/envs\nCheck permissions:\nls -ld /data/software\nls -ld /data/envs",
+    "crumbs": [
+      "Admin Notes"
+    ]
+  },
+  {
+    "objectID": "admin-notes.html#slurm-checks",
+    "href": "admin-notes.html#slurm-checks",
+    "title": "Admin Notes",
+    "section": "3 Slurm checks",
+    "text": "3 Slurm checks\nCheck node status:\nsinfo\nShow node details:\nscontrol show node mod-linux-ws01\nRestart Slurm services if needed:\nsudo systemctl restart slurmctld\nsudo systemctl restart slurmd\nCheck service status:\nsystemctl status slurmctld\nsystemctl status slurmd",
+    "crumbs": [
+      "Admin Notes"
+    ]
+  },
+  {
+    "objectID": "admin-notes.html#quarto",
+    "href": "admin-notes.html#quarto",
+    "title": "Admin Notes",
+    "section": "4 Quarto",
+    "text": "4 Quarto\nCheck Quarto:\nquarto --version\nquarto check",
+    "crumbs": [
+      "Admin Notes"
+    ]
+  },
+  {
+    "objectID": "admin-notes.html#conda-and-mamba",
+    "href": "admin-notes.html#conda-and-mamba",
+    "title": "Admin Notes",
+    "section": "5 Conda and Mamba",
+    "text": "5 Conda and Mamba\nCheck installation:\nwhich conda\nwhich mamba\nList environments:\nconda env list",
+    "crumbs": [
+      "Admin Notes"
+    ]
+  },
+  {
+    "objectID": "admin-notes.html#documentation-website",
+    "href": "admin-notes.html#documentation-website",
+    "title": "Admin Notes",
+    "section": "6 Documentation website",
+    "text": "6 Documentation website\nRender the guide:\nquarto render\nPreview locally:\nquarto preview\nThe rendered website is written to:\n_site/",
+    "crumbs": [
+      "Admin Notes"
+    ]
+  },
+  {
+    "objectID": "admin-notes.html#notes-for-future-administrators",
+    "href": "admin-notes.html#notes-for-future-administrators",
+    "title": "Admin Notes",
+    "section": "7 Notes for future administrators",
+    "text": "7 Notes for future administrators\nKeep this section updated when the workstation configuration changes.",
+    "crumbs": [
+      "Admin Notes"
     ]
   },
   {
@@ -686,407 +894,399 @@
     ]
   },
   {
-    "objectID": "admin-notes.html",
-    "href": "admin-notes.html",
-    "title": "Admin Notes",
+    "objectID": "examples/submit-python-job.html",
+    "href": "examples/submit-python-job.html",
+    "title": "Submit a Python Job",
     "section": "",
-    "text": "This section is intended for workstation administrators.",
-    "crumbs": [
-      "Admin Notes"
-    ]
-  },
-  {
-    "objectID": "admin-notes.html#user-management",
-    "href": "admin-notes.html#user-management",
-    "title": "Admin Notes",
-    "section": "1 User management",
-    "text": "1 User management\nCreate a new user:\nsudo adduser username\nAdd user to a group:\nsudo usermod -aG research username\nCheck user groups:\ngroups username",
-    "crumbs": [
-      "Admin Notes"
-    ]
-  },
-  {
-    "objectID": "admin-notes.html#shared-directories",
-    "href": "admin-notes.html#shared-directories",
-    "title": "Admin Notes",
-    "section": "2 Shared directories",
-    "text": "2 Shared directories\nShared software:\n/data/software\nShared conda environments:\n/data/envs\nCheck permissions:\nls -ld /data/software\nls -ld /data/envs",
-    "crumbs": [
-      "Admin Notes"
-    ]
-  },
-  {
-    "objectID": "admin-notes.html#slurm-checks",
-    "href": "admin-notes.html#slurm-checks",
-    "title": "Admin Notes",
-    "section": "3 Slurm checks",
-    "text": "3 Slurm checks\nCheck node status:\nsinfo\nShow node details:\nscontrol show node mod-linux-ws01\nRestart Slurm services if needed:\nsudo systemctl restart slurmctld\nsudo systemctl restart slurmd\nCheck service status:\nsystemctl status slurmctld\nsystemctl status slurmd",
-    "crumbs": [
-      "Admin Notes"
-    ]
-  },
-  {
-    "objectID": "admin-notes.html#quarto",
-    "href": "admin-notes.html#quarto",
-    "title": "Admin Notes",
-    "section": "4 Quarto",
-    "text": "4 Quarto\nCheck Quarto:\nquarto --version\nquarto check",
-    "crumbs": [
-      "Admin Notes"
-    ]
-  },
-  {
-    "objectID": "admin-notes.html#conda-and-mamba",
-    "href": "admin-notes.html#conda-and-mamba",
-    "title": "Admin Notes",
-    "section": "5 Conda and Mamba",
-    "text": "5 Conda and Mamba\nCheck installation:\nwhich conda\nwhich mamba\nList environments:\nconda env list",
-    "crumbs": [
-      "Admin Notes"
-    ]
-  },
-  {
-    "objectID": "admin-notes.html#documentation-website",
-    "href": "admin-notes.html#documentation-website",
-    "title": "Admin Notes",
-    "section": "6 Documentation website",
-    "text": "6 Documentation website\nRender the guide:\nquarto render\nPreview locally:\nquarto preview\nThe rendered website is written to:\n_site/",
-    "crumbs": [
-      "Admin Notes"
-    ]
-  },
-  {
-    "objectID": "admin-notes.html#notes-for-future-administrators",
-    "href": "admin-notes.html#notes-for-future-administrators",
-    "title": "Admin Notes",
-    "section": "7 Notes for future administrators",
-    "text": "7 Notes for future administrators\nKeep this section updated when the workstation configuration changes.",
-    "crumbs": [
-      "Admin Notes"
-    ]
-  },
-  {
-    "objectID": "examples/submit-cmdstan-job.html",
-    "href": "examples/submit-cmdstan-job.html",
-    "title": "Submit a CmdStan Job",
-    "section": "",
-    "text": "This example shows how to run a CmdStan model using Slurm.",
+    "text": "This example shows how to submit a Python script using Slurm.",
     "crumbs": [
       "Examples",
-      "Submit a CmdStan Job"
+      "Submit a Python Job"
     ]
   },
   {
-    "objectID": "examples/submit-cmdstan-job.html#example-stan-model",
-    "href": "examples/submit-cmdstan-job.html#example-stan-model",
-    "title": "Submit a CmdStan Job",
-    "section": "1 Example Stan model",
-    "text": "1 Example Stan model\nCreate normal.stan:\ndata {\n  int&lt;lower=0&gt; N;\n  array[N] real y;\n}\nparameters {\n  real mu;\n  real&lt;lower=0&gt; sigma;\n}\nmodel {\n  y ~ normal(mu, sigma);\n}",
+    "objectID": "examples/submit-python-job.html#example-python-script",
+    "href": "examples/submit-python-job.html#example-python-script",
+    "title": "Submit a Python Job",
+    "section": "1 Example Python script",
+    "text": "1 Example Python script\nCreate analysis.py:\nimport platform\nfrom datetime import datetime\n\nprint(\"Running Python analysis\")\nprint(platform.node())\nprint(datetime.now())",
     "crumbs": [
       "Examples",
-      "Submit a CmdStan Job"
+      "Submit a Python Job"
     ]
   },
   {
-    "objectID": "examples/submit-cmdstan-job.html#compile-the-model",
-    "href": "examples/submit-cmdstan-job.html#compile-the-model",
-    "title": "Submit a CmdStan Job",
-    "section": "2 Compile the model",
-    "text": "2 Compile the model\nIf CmdStan is available in your environment:\nmake normal\nor use CmdStanR from R.",
-    "crumbs": [
-      "Examples",
-      "Submit a CmdStan Job"
-    ]
-  },
-  {
-    "objectID": "examples/submit-cmdstan-job.html#example-slurm-script-for-cmdstan",
-    "href": "examples/submit-cmdstan-job.html#example-slurm-script-for-cmdstan",
-    "title": "Submit a CmdStan Job",
-    "section": "3 Example Slurm script for CmdStan",
-    "text": "3 Example Slurm script for CmdStan\nCreate run-cmdstan.sh:\n#!/bin/bash\n#SBATCH --job-name=cmdstan-test\n#SBATCH --cpus-per-task=4\n#SBATCH --mem=8G\n#SBATCH --output=cmdstan-test.out\n#SBATCH --error=cmdstan-test.err\n\nexport STAN_NUM_THREADS=$SLURM_CPUS_PER_TASK\n\n./normal sample data file=data.json output file=output.csv",
-    "crumbs": [
-      "Examples",
-      "Submit a CmdStan Job"
-    ]
-  },
-  {
-    "objectID": "examples/submit-cmdstan-job.html#submit-the-job",
-    "href": "examples/submit-cmdstan-job.html#submit-the-job",
-    "title": "Submit a CmdStan Job",
-    "section": "4 Submit the job",
-    "text": "4 Submit the job\nsbatch run-cmdstan.sh",
-    "crumbs": [
-      "Examples",
-      "Submit a CmdStan Job"
-    ]
-  },
-  {
-    "objectID": "examples/submit-cmdstan-job.html#check-output",
-    "href": "examples/submit-cmdstan-job.html#check-output",
-    "title": "Submit a CmdStan Job",
-    "section": "5 Check output",
-    "text": "5 Check output\ncat cmdstan-test.out",
-    "crumbs": [
-      "Examples",
-      "Submit a CmdStan Job"
-    ]
-  },
-  {
-    "objectID": "examples/submit-cmdstan-job.html#notes",
-    "href": "examples/submit-cmdstan-job.html#notes",
-    "title": "Submit a CmdStan Job",
-    "section": "6 Notes",
-    "text": "6 Notes\nCmdStan models can use multiple CPU threads when the model and settings support threading.\nOnly request multiple CPUs if your model can use them.",
-    "crumbs": [
-      "Examples",
-      "Submit a CmdStan Job"
-    ]
-  },
-  {
-    "objectID": "examples/submit-r-job.html",
-    "href": "examples/submit-r-job.html",
-    "title": "Submit an R Job",
-    "section": "",
-    "text": "This example shows how to submit an R script using Slurm.",
-    "crumbs": [
-      "Examples",
-      "Submit an R Job"
-    ]
-  },
-  {
-    "objectID": "examples/submit-r-job.html#example-r-script",
-    "href": "examples/submit-r-job.html#example-r-script",
-    "title": "Submit an R Job",
-    "section": "1 Example R script",
-    "text": "1 Example R script\nCreate analysis.R:\nprint(\"Running R analysis\")\nprint(Sys.info())\nprint(Sys.time())",
-    "crumbs": [
-      "Examples",
-      "Submit an R Job"
-    ]
-  },
-  {
-    "objectID": "examples/submit-r-job.html#example-slurm-script",
-    "href": "examples/submit-r-job.html#example-slurm-script",
-    "title": "Submit an R Job",
+    "objectID": "examples/submit-python-job.html#example-slurm-script",
+    "href": "examples/submit-python-job.html#example-slurm-script",
+    "title": "Submit a Python Job",
     "section": "2 Example Slurm script",
-    "text": "2 Example Slurm script\nCreate run-r.sh:\n#!/bin/bash\n#SBATCH --job-name=r-test\n#SBATCH --cpus-per-task=1\n#SBATCH --mem=2G\n#SBATCH --output=r-test.out\n#SBATCH --error=r-test.err\n\nconda activate R-4.4\n\nRscript analysis.R",
+    "text": "2 Example Slurm script\nCreate run-python.sh:\n#!/bin/bash\n#SBATCH --job-name=python-test\n#SBATCH --cpus-per-task=1\n#SBATCH --mem=2G\n#SBATCH --output=python-test.out\n#SBATCH --error=python-test.err\n\nconda activate py311\n\npython analysis.py",
     "crumbs": [
       "Examples",
-      "Submit an R Job"
+      "Submit a Python Job"
     ]
   },
   {
-    "objectID": "examples/submit-r-job.html#submit-the-job",
-    "href": "examples/submit-r-job.html#submit-the-job",
-    "title": "Submit an R Job",
+    "objectID": "examples/submit-python-job.html#submit-the-job",
+    "href": "examples/submit-python-job.html#submit-the-job",
+    "title": "Submit a Python Job",
     "section": "3 Submit the job",
-    "text": "3 Submit the job\nsbatch run-r.sh",
+    "text": "3 Submit the job\nsbatch run-python.sh",
     "crumbs": [
       "Examples",
-      "Submit an R Job"
+      "Submit a Python Job"
     ]
   },
   {
-    "objectID": "examples/submit-r-job.html#check-the-queue",
-    "href": "examples/submit-r-job.html#check-the-queue",
-    "title": "Submit an R Job",
-    "section": "4 Check the queue",
-    "text": "4 Check the queue\nsqueue -u $USER",
+    "objectID": "examples/submit-python-job.html#check-output",
+    "href": "examples/submit-python-job.html#check-output",
+    "title": "Submit a Python Job",
+    "section": "4 Check output",
+    "text": "4 Check output\ncat python-test.out",
     "crumbs": [
       "Examples",
-      "Submit an R Job"
+      "Submit a Python Job"
     ]
   },
   {
-    "objectID": "examples/submit-r-job.html#check-output",
-    "href": "examples/submit-r-job.html#check-output",
-    "title": "Submit an R Job",
-    "section": "5 Check output",
-    "text": "5 Check output\ncat r-test.out",
+    "objectID": "examples/submit-python-job.html#notes",
+    "href": "examples/submit-python-job.html#notes",
+    "title": "Submit a Python Job",
+    "section": "5 Notes",
+    "text": "5 Notes\nFor larger analyses, request more memory or CPUs only when needed.\nExample:\n#SBATCH --cpus-per-task=4\n#SBATCH --mem=8G",
     "crumbs": [
       "Examples",
-      "Submit an R Job"
+      "Submit a Python Job"
     ]
   },
   {
-    "objectID": "examples/submit-r-job.html#notes",
-    "href": "examples/submit-r-job.html#notes",
-    "title": "Submit an R Job",
-    "section": "6 Notes",
-    "text": "6 Notes\nIf conda activate does not work inside the Slurm script, you may need to initialise conda first or use the full path to the R executable inside the environment.",
-    "crumbs": [
-      "Examples",
-      "Submit an R Job"
-    ]
-  },
-  {
-    "objectID": "getting-started.html",
-    "href": "getting-started.html",
-    "title": "Getting Started",
+    "objectID": "file-storage.html",
+    "href": "file-storage.html",
+    "title": "File Storage and Project Folders",
     "section": "",
-    "text": "This page introduces the basic information needed before using the MAEMOD research workstation.",
+    "text": "This page explains where files should be stored.",
     "crumbs": [
-      "Getting Started"
+      "File Storage and Project Folders"
     ]
   },
   {
-    "objectID": "getting-started.html#what-you-need",
-    "href": "getting-started.html#what-you-need",
-    "title": "Getting Started",
-    "section": "1 What you need",
-    "text": "1 What you need\nBefore logging in, you need:\n\na workstation user account\na password\nnetwork access to the workstation\nan SSH client\n\nIf you do not yet have an account, contact the workstation administrator.",
+    "objectID": "file-storage.html#home-directory",
+    "href": "file-storage.html#home-directory",
+    "title": "File Storage and Project Folders",
+    "section": "1 Home directory",
+    "text": "1 Home directory\nYour home directory is:\n/home/username\nUse this for:\n\npersonal scripts\nsmall analyses\nconfiguration files\nnotes\n\nAvoid storing very large datasets in your home directory.",
     "crumbs": [
-      "Getting Started"
+      "File Storage and Project Folders"
     ]
   },
   {
-    "objectID": "getting-started.html#first-login",
-    "href": "getting-started.html#first-login",
-    "title": "Getting Started",
-    "section": "2 First login",
-    "text": "2 First login\nFrom Linux, macOS, or Windows Terminal:\nssh username@mod-linux-ws01\nReplace username with your own workstation username.",
+    "objectID": "file-storage.html#shared-software",
+    "href": "file-storage.html#shared-software",
+    "title": "File Storage and Project Folders",
+    "section": "2 Shared software",
+    "text": "2 Shared software\nShared software is installed in:\n/data/software\nThis directory is managed by the workstation administrator.\nUsers should not normally install project data here.",
     "crumbs": [
-      "Getting Started"
+      "File Storage and Project Folders"
     ]
   },
   {
-    "objectID": "getting-started.html#change-your-password",
-    "href": "getting-started.html#change-your-password",
-    "title": "Getting Started",
-    "section": "3 Change your password",
-    "text": "3 Change your password\nAfter your first login, change your password:\npasswd\nFollow the instructions on screen.",
+    "objectID": "file-storage.html#shared-conda-environments",
+    "href": "file-storage.html#shared-conda-environments",
+    "title": "File Storage and Project Folders",
+    "section": "3 Shared conda environments",
+    "text": "3 Shared conda environments\nShared conda environments are stored in:\n/data/envs\nThese environments can be used by multiple users.\nExample:\nconda activate /data/envs/R-4.4\nor, if the environment name is configured:\nconda activate R-4.4",
     "crumbs": [
-      "Getting Started"
+      "File Storage and Project Folders"
     ]
   },
   {
-    "objectID": "getting-started.html#check-your-username",
-    "href": "getting-started.html#check-your-username",
-    "title": "Getting Started",
-    "section": "4 Check your username",
-    "text": "4 Check your username\nwhoami",
+    "objectID": "file-storage.html#project-folders",
+    "href": "file-storage.html#project-folders",
+    "title": "File Storage and Project Folders",
+    "section": "4 Project folders",
+    "text": "4 Project folders\nProject data should be stored in a shared project location, for example:\n/data/projects\nA suggested project structure is:\nproject-name/\n├── data/\n│   ├── raw/\n│   └── processed/\n├── scripts/\n├── results/\n├── figures/\n├── reports/\n└── README.md",
     "crumbs": [
-      "Getting Started"
+      "File Storage and Project Folders"
     ]
   },
   {
-    "objectID": "getting-started.html#check-the-hostname",
-    "href": "getting-started.html#check-the-hostname",
-    "title": "Getting Started",
-    "section": "5 Check the hostname",
-    "text": "5 Check the hostname\nhostname\nYou should see:\nmod-linux-ws01",
+    "objectID": "file-storage.html#recommended-practice",
+    "href": "file-storage.html#recommended-practice",
+    "title": "File Storage and Project Folders",
+    "section": "5 Recommended practice",
+    "text": "5 Recommended practice\nKeep raw data separate from processed data.\nDo not overwrite raw data.\nUse clear filenames and include dates or version numbers where useful.\nExample:\nresults/model-fit-2026-06-18.csv",
     "crumbs": [
-      "Getting Started"
+      "File Storage and Project Folders"
     ]
   },
   {
-    "objectID": "getting-started.html#check-your-home-directory",
-    "href": "getting-started.html#check-your-home-directory",
-    "title": "Getting Started",
-    "section": "6 Check your home directory",
-    "text": "6 Check your home directory\npwd\nUsually this will show something like:\n/home/username",
+    "objectID": "file-storage.html#check-disk-usage",
+    "href": "file-storage.html#check-disk-usage",
+    "title": "File Storage and Project Folders",
+    "section": "6 Check disk usage",
+    "text": "6 Check disk usage\nCheck available disk space:\ndf -h\nCheck the size of your folder:\ndu -sh .",
     "crumbs": [
-      "Getting Started"
+      "File Storage and Project Folders"
     ]
   },
   {
-    "objectID": "getting-started.html#check-system-status",
-    "href": "getting-started.html#check-system-status",
-    "title": "Getting Started",
-    "section": "7 Check system status",
-    "text": "7 Check system status\nsinfo\nThis checks the Slurm scheduler.",
-    "crumbs": [
-      "Getting Started"
-    ]
-  },
-  {
-    "objectID": "getting-started.html#basic-etiquette",
-    "href": "getting-started.html#basic-etiquette",
-    "title": "Getting Started",
-    "section": "8 Basic etiquette",
-    "text": "8 Basic etiquette\nPlease avoid running heavy computations directly in the login shell.\nFor long analyses, simulations, model fitting, or parallel jobs, use Slurm.",
-    "crumbs": [
-      "Getting Started"
-    ]
-  },
-  {
-    "objectID": "quick-start.html",
-    "href": "quick-start.html",
-    "title": "Quick Start",
+    "objectID": "good-practice.html",
+    "href": "good-practice.html",
+    "title": "Good Practice",
     "section": "",
-    "text": "This page gives the shortest path to start using the workstation.",
+    "text": "This page gives recommended practices for using the shared workstation.",
     "crumbs": [
-      "Quick Start"
+      "Good Practice"
     ]
   },
   {
-    "objectID": "quick-start.html#connect-to-the-workstation",
-    "href": "quick-start.html#connect-to-the-workstation",
-    "title": "Quick Start",
-    "section": "1 1. Connect to the workstation",
-    "text": "1 1. Connect to the workstation\nReplace username with your own username.\nssh username@mod-linux-ws01\nIf you are using Windows, you can connect using PuTTY, MobaXterm, Windows Terminal, or VS Code Remote SSH.",
+    "objectID": "good-practice.html#use-slurm-for-long-jobs",
+    "href": "good-practice.html#use-slurm-for-long-jobs",
+    "title": "Good Practice",
+    "section": "1 Use Slurm for long jobs",
+    "text": "1 Use Slurm for long jobs\nDo not run long or intensive jobs directly in the login terminal.\nUse Slurm:\nsbatch job.sh",
     "crumbs": [
-      "Quick Start"
+      "Good Practice"
     ]
   },
   {
-    "objectID": "quick-start.html#check-where-you-are",
-    "href": "quick-start.html#check-where-you-are",
-    "title": "Quick Start",
-    "section": "2 2. Check where you are",
-    "text": "2 2. Check where you are\nhostname\nwhoami\npwd",
+    "objectID": "good-practice.html#organise-project-folders",
+    "href": "good-practice.html#organise-project-folders",
+    "title": "Good Practice",
+    "section": "2 Organise project folders",
+    "text": "2 Organise project folders\nRecommended structure:\nproject-name/\n├── data/\n├── scripts/\n├── results/\n├── figures/\n├── reports/\n└── README.md",
     "crumbs": [
-      "Quick Start"
+      "Good Practice"
     ]
   },
   {
-    "objectID": "quick-start.html#check-the-workstation-status",
-    "href": "quick-start.html#check-the-workstation-status",
-    "title": "Quick Start",
-    "section": "3 3. Check the workstation status",
-    "text": "3 3. Check the workstation status\nsinfo\nThis shows whether the Slurm compute partition is available.",
+    "objectID": "good-practice.html#keep-raw-data-unchanged",
+    "href": "good-practice.html#keep-raw-data-unchanged",
+    "title": "Good Practice",
+    "section": "3 Keep raw data unchanged",
+    "text": "3 Keep raw data unchanged\nDo not edit raw data directly.\nSave cleaned or transformed data in a separate folder.",
     "crumbs": [
-      "Quick Start"
+      "Good Practice"
     ]
   },
   {
-    "objectID": "quick-start.html#check-your-files",
-    "href": "quick-start.html#check-your-files",
-    "title": "Quick Start",
-    "section": "4 4. Check your files",
-    "text": "4 4. Check your files\nls\nls -lh",
+    "objectID": "good-practice.html#use-clear-filenames",
+    "href": "good-practice.html#use-clear-filenames",
+    "title": "Good Practice",
+    "section": "4 Use clear filenames",
+    "text": "4 Use clear filenames\nGood examples:\nanalysis-model-v1.R\nresults-2026-06-18.csv\nfigure-transmission-map.png\nAvoid:\nnew.R\ntest2.csv\nfinal_final_v3.csv",
     "crumbs": [
-      "Quick Start"
+      "Good Practice"
     ]
   },
   {
-    "objectID": "quick-start.html#activate-a-software-environment",
-    "href": "quick-start.html#activate-a-software-environment",
-    "title": "Quick Start",
-    "section": "5 5. Activate a software environment",
-    "text": "5 5. Activate a software environment\nExample for R:\nconda activate R-4.4\nExample for Python:\nconda activate py311\nThe exact environment names may change. To see available conda environments:\nconda env list\nor:\nmamba env list",
+    "objectID": "good-practice.html#record-software-versions",
+    "href": "good-practice.html#record-software-versions",
+    "title": "Good Practice",
+    "section": "5 Record software versions",
+    "text": "5 Record software versions\nUseful commands:\nR --version\npython --version\nquarto --version\nFor R:\nsessionInfo()\nFor Python:\npip freeze\nor:\nconda list",
     "crumbs": [
-      "Quick Start"
+      "Good Practice"
     ]
   },
   {
-    "objectID": "quick-start.html#submit-a-job",
-    "href": "quick-start.html#submit-a-job",
-    "title": "Quick Start",
-    "section": "6 6. Submit a job",
-    "text": "6 6. Submit a job\nCreate a file called job.sh:\nnano job.sh\nExample Slurm job:\n#!/bin/bash\n#SBATCH --job-name=test-job\n#SBATCH --cpus-per-task=1\n#SBATCH --mem=2G\n#SBATCH --output=test-job.out\n\nhostname\ndate\nSubmit it:\nsbatch job.sh\nCheck the queue:\nsqueue\nCheck the output:\ncat test-job.out",
+    "objectID": "good-practice.html#use-git-for-code",
+    "href": "good-practice.html#use-git-for-code",
+    "title": "Good Practice",
+    "section": "6 Use Git for code",
+    "text": "6 Use Git for code\nUse Git for scripts, reports, and documentation.\nDo not put very large data files into Git unless there is a clear reason.",
     "crumbs": [
-      "Quick Start"
+      "Good Practice"
     ]
   },
   {
-    "objectID": "quick-start.html#log-out",
-    "href": "quick-start.html#log-out",
-    "title": "Quick Start",
-    "section": "7 7. Log out",
-    "text": "7 7. Log out\nexit",
+    "objectID": "good-practice.html#clean-up-old-files",
+    "href": "good-practice.html#clean-up-old-files",
+    "title": "Good Practice",
+    "section": "7 Clean up old files",
+    "text": "7 Clean up old files\nCheck folder size:\ndu -sh .\nRemove temporary files that are no longer needed.",
     "crumbs": [
-      "Quick Start"
+      "Good Practice"
+    ]
+  },
+  {
+    "objectID": "good-practice.html#be-considerate",
+    "href": "good-practice.html#be-considerate",
+    "title": "Good Practice",
+    "section": "8 Be considerate",
+    "text": "8 Be considerate\nThis is a shared workstation.\nPlease avoid using all CPUs or memory unless necessary.",
+    "crumbs": [
+      "Good Practice"
+    ]
+  },
+  {
+    "objectID": "r-package-management.html",
+    "href": "r-package-management.html",
+    "title": "R Package Management",
+    "section": "",
+    "text": "This page explains how R packages should be installed and managed on the shared workstation.\nThe workstation uses shared R installations through conda environments, for example:\nThe recommended approach is:",
+    "crumbs": [
+      "R Package Management"
+    ]
+  },
+  {
+    "objectID": "r-package-management.html#why-package-management-matters",
+    "href": "r-package-management.html#why-package-management-matters",
+    "title": "R Package Management",
+    "section": "1 Why package management matters",
+    "text": "1 Why package management matters\nDifferent projects may need different versions of R packages.\nFor example, one project may require an older version of brms, while another project may need the newest version of tidyverse.\nIf everyone installs packages into the same shared R library, one user’s package update may break another user’s project.",
+    "crumbs": [
+      "R Package Management"
+    ]
+  },
+  {
+    "objectID": "r-package-management.html#recommended-policy",
+    "href": "r-package-management.html#recommended-policy",
+    "title": "R Package Management",
+    "section": "2 Recommended policy",
+    "text": "2 Recommended policy\n\n\n\n\n\n\n\nScenario\nRecommended approach\n\n\n\n\nQuick test or small script\nUse the shared R conda environment\n\n\nPersonal analysis\nUse your personal R library or renv\n\n\nProject with collaborators\nUse renv\n\n\nManuscript or reproducible analysis\nUse renv\n\n\nPackage needs Linux system libraries\nAsk the administrator\n\n\nSoftware should be available to all users\nAsk the administrator to install it in the shared conda environment",
+    "crumbs": [
+      "R Package Management"
+    ]
+  },
+  {
+    "objectID": "r-package-management.html#check-which-r-you-are-using",
+    "href": "r-package-management.html#check-which-r-you-are-using",
+    "title": "R Package Management",
+    "section": "3 Check which R you are using",
+    "text": "3 Check which R you are using\nAfter activating an environment:\nconda activate R-4.4\nwhich R\nR --version\nInside R:\nR.home()\n.libPaths()\n.libPaths() shows where R will look for packages.",
+    "crumbs": [
+      "R Package Management"
+    ]
+  },
+  {
+    "objectID": "r-package-management.html#personal-r-package-library",
+    "href": "r-package-management.html#personal-r-package-library",
+    "title": "R Package Management",
+    "section": "4 Personal R package library",
+    "text": "4 Personal R package library\nIf you install packages without administrator permission, R may install them into your personal library.\nThis is usually inside your home directory, for example:\n/home/username/R/x86_64-conda-linux-gnu-library/4.4\nThis is acceptable for personal work, but it is not ideal for shared projects because other users may not have the same packages.",
+    "crumbs": [
+      "R Package Management"
+    ]
+  },
+  {
+    "objectID": "r-package-management.html#installing-r-packages-for-personal-use",
+    "href": "r-package-management.html#installing-r-packages-for-personal-use",
+    "title": "R Package Management",
+    "section": "5 Installing R packages for personal use",
+    "text": "5 Installing R packages for personal use\nActivate the R environment:\nconda activate R-4.4\nR\nThen in R:\ninstall.packages(\"tidyverse\")\nCheck where the package was installed:\nfind.package(\"tidyverse\")",
+    "crumbs": [
+      "R Package Management"
+    ]
+  },
+  {
+    "objectID": "r-package-management.html#using-renv-for-a-project",
+    "href": "r-package-management.html#using-renv-for-a-project",
+    "title": "R Package Management",
+    "section": "6 Using renv for a project",
+    "text": "6 Using renv for a project\nrenv creates a project-specific R package library and records package versions in a lockfile.\nThis is the recommended approach for collaborative and reproducible projects.\n\n6.1 Step 1: Go to your project folder\ncd /data/projects/my-project\nconda activate R-4.4\nR\n\n\n6.2 Step 2: Initialise renv\nInside R:\ninstall.packages(\"renv\")\nrenv::init()\nThis creates project files such as:\nrenv/\nrenv.lock\n.Rprofile\n\n\n6.3 Step 3: Install packages inside the project\ninstall.packages(\"tidyverse\")\ninstall.packages(\"cmdstanr\")\n\n\n6.4 Step 4: Save the package versions\nrenv::snapshot()\nThis updates:\nrenv.lock\nThe renv.lock file should be committed to Git.\n\n\n6.5 Step 5: Restore the project on another account or machine\nWhen another user opens the same project, they can run:\nrenv::restore()\nThis installs the package versions recorded in renv.lock.",
+    "crumbs": [
+      "R Package Management"
+    ]
+  },
+  {
+    "objectID": "r-package-management.html#what-should-be-committed-to-git",
+    "href": "r-package-management.html#what-should-be-committed-to-git",
+    "title": "R Package Management",
+    "section": "7 What should be committed to Git?",
+    "text": "7 What should be committed to Git?\nCommit these files:\nrenv.lock\n.Rprofile\nrenv/settings.json\nDo not commit the full package library:\nrenv/library/\nThe package library can be recreated using:\nrenv::restore()",
+    "crumbs": [
+      "R Package Management"
+    ]
+  },
+  {
+    "objectID": "r-package-management.html#recommended-project-structure-with-renv",
+    "href": "r-package-management.html#recommended-project-structure-with-renv",
+    "title": "R Package Management",
+    "section": "8 Recommended project structure with renv",
+    "text": "8 Recommended project structure with renv\nproject-name/\n├── data/\n├── scripts/\n├── results/\n├── renv/\n├── renv.lock\n├── .Rprofile\n└── README.md",
+    "crumbs": [
+      "R Package Management"
+    ]
+  },
+  {
+    "objectID": "r-package-management.html#when-not-to-use-renv",
+    "href": "r-package-management.html#when-not-to-use-renv",
+    "title": "R Package Management",
+    "section": "9 When not to use renv",
+    "text": "9 When not to use renv\nYou may not need renv for:\n\nvery small one-off scripts\nteaching examples\nquick checks\ntemporary exploratory work\n\nFor anything that may become a paper, report, Shiny app, or shared analysis, use renv.",
+    "crumbs": [
+      "R Package Management"
+    ]
+  },
+  {
+    "objectID": "r-package-management.html#installing-packages-into-the-shared-conda-r-environment",
+    "href": "r-package-management.html#installing-packages-into-the-shared-conda-r-environment",
+    "title": "R Package Management",
+    "section": "10 Installing packages into the shared conda R environment",
+    "text": "10 Installing packages into the shared conda R environment\nOnly administrators should install packages into the shared R conda environment.\nExample administrator workflow:\nconda activate R-4.4\nmamba install -c conda-forge r-tidyverse r-data.table r-cmdstanr\nThis is useful for common packages needed by many users.\nHowever, not every R package needs to be installed globally.",
+    "crumbs": [
+      "R Package Management"
+    ]
+  },
+  {
+    "objectID": "r-package-management.html#r-packages-from-cran-vs-conda-forge",
+    "href": "r-package-management.html#r-packages-from-cran-vs-conda-forge",
+    "title": "R Package Management",
+    "section": "11 R packages from CRAN vs conda-forge",
+    "text": "11 R packages from CRAN vs conda-forge\nThere are two common ways to install R packages:\n\n11.1 From inside R\ninstall.packages(\"package_name\")\n\n\n11.2 From conda-forge\nmamba install -c conda-forge r-package_name\nFor shared environments, conda-forge packages are often easier to manage at the system level.\nFor project-specific work, renv is usually better.",
+    "crumbs": [
+      "R Package Management"
+    ]
+  },
+  {
+    "objectID": "r-package-management.html#packages-requiring-linux-system-libraries",
+    "href": "r-package-management.html#packages-requiring-linux-system-libraries",
+    "title": "R Package Management",
+    "section": "12 Packages requiring Linux system libraries",
+    "text": "12 Packages requiring Linux system libraries\nSome R packages need Linux system libraries before they can be installed.\nExamples include packages that depend on:\n\nXML\nSSL\ncurl\nGDAL\nGEOS\nPROJ\nJava\n\nIf installation fails with missing system libraries, ask the administrator.\nDo not repeatedly try random fixes in the shared environment.",
+    "crumbs": [
+      "R Package Management"
+    ]
+  },
+  {
+    "objectID": "r-package-management.html#snap-packages",
+    "href": "r-package-management.html#snap-packages",
+    "title": "R Package Management",
+    "section": "13 Snap packages",
+    "text": "13 Snap packages\nSnap packages are mainly useful for standalone applications, especially desktop apps or command-line tools packaged as snaps.\nSnap is not recommended for managing R packages.\nUse this rule:\n\n\n\n\n\n\n\nNeed\nUse\n\n\n\n\nR package\nrenv, CRAN, or conda-forge\n\n\nPython package\nconda, mamba, pip, or project environment\n\n\nSystem package\napt, administrator-managed\n\n\nStandalone application packaged as snap\nsnap, administrator-managed",
+    "crumbs": [
+      "R Package Management"
+    ]
+  },
+  {
+    "objectID": "r-package-management.html#check-installed-snap-packages",
+    "href": "r-package-management.html#check-installed-snap-packages",
+    "title": "R Package Management",
+    "section": "14 Check installed snap packages",
+    "text": "14 Check installed snap packages\nsnap list",
+    "crumbs": [
+      "R Package Management"
+    ]
+  },
+  {
+    "objectID": "r-package-management.html#install-a-snap-package",
+    "href": "r-package-management.html#install-a-snap-package",
+    "title": "R Package Management",
+    "section": "15 Install a snap package",
+    "text": "15 Install a snap package\nOnly administrators should install snap packages system-wide.\nExample:\nsudo snap install package-name\nSome snap packages require classic confinement:\nsudo snap install package-name --classic",
+    "crumbs": [
+      "R Package Management"
+    ]
+  },
+  {
+    "objectID": "r-package-management.html#summary",
+    "href": "r-package-management.html#summary",
+    "title": "R Package Management",
+    "section": "16 Summary",
+    "text": "16 Summary\nFor most R users:\nconda activate R-4.4\ncd /data/projects/my-project\nR\nThen inside R:\ninstall.packages(\"renv\")\nrenv::init()\ninstall.packages(\"tidyverse\")\nrenv::snapshot()\nFor collaborators:\nrenv::restore()",
+    "crumbs": [
+      "R Package Management"
     ]
   },
   {
